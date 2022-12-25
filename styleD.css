@@ -7,6 +7,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat','sans-serif';
+    
 }
 
 header{
@@ -22,9 +23,7 @@ header{
     margin-top:  5px;
     margin-bottom:  5px;
     margin-left: 20px;
- 
  }
-
 
 .nav ul.nav-list {
     list-style-type: none;
@@ -98,6 +97,67 @@ header{
 
 
 
+/*========Container-1=====*/
+
+.h2 {
+    margin-top: 60px;
+    margin-left: 150px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-family: 'Libre Caslon Text', serif;
+    color: #816207;
+    text-decoration: underline;
+}
+
+.h3 {
+    margin-top: 30px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-family: 'Libre Caslon Text', serif;
+    color: #b89223;
+
+}
+
+.first-p{
+    margin-left: 150px;
+    font-family: 'Raleway',sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.6em;
+    font-size: 17px;
+    
+}
+
+.button-box a {
+    display: flex;
+    text-decoration: none;
+    text-decoration-color: none;
+    margin-top: 10px;
+    margin-left: 150px;
+    color: #695723 ;
+    background-color: #c4af71;
+    width: 150px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider-1 {
+    margin-left: 150px;
+    width: 82%;
+    height: 1px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #7b7979;
+}
+
+
+
+
 
 /*Fotter*/
 .header-1 h3{
@@ -105,6 +165,7 @@ header{
     font-weight: 400;
     font-size: 20px;
     letter-spacing: 10px;
+    margin-top: 70px;
     margin-left: 150px;
     font-family: Raleway,sans-serif;
     line-height: 1.5em;
@@ -212,4 +273,3 @@ header{
     font-weight: 300;
     font-family: 'Raleway',sans-serif;
 }
-
