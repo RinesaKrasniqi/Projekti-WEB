@@ -12,7 +12,7 @@ function valido(){
     var username=document.getElementById('usernameInput').value;
     var usernameRegex=/^[A-Za-z]{5,}[0-9]{1,}$/
     var password=document.getElementById('passwordInput').value;
-    var passwordRegex=/^[A-Za-z]{5,}[0-9]{1,}$/
+    var passwordRegex=/^[A-Z][a-z]{5,}[0-9]{1,}$/
 
     if(usernameRegex.test(username)){
         alert("Username is valid");
@@ -25,6 +25,10 @@ function valido(){
         alert("Password is not valid, it should contain 1 capital letters, at least 5 letters, and a number!")
     }
     
+}
+
+function validoSignUp(){
+     var 
 }
 
 
