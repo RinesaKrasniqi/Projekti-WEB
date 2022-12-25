@@ -1,27 +1,4 @@
-/*var array =[
-    'C:/Users/Lenovo/OneDrive/Desktop/Projekt/Changes/Images/dentist-patient-kid.jpg',
-    'C:/Users/Lenovo/OneDrive/Desktop/Projekt/Changes/Images/dentist-patient.jpg',
-    'C:/Users/Lenovo/OneDrive/Desktop/Projekt/Changes/Images/dental-office.png'
-    
-    
-   
-];
-​
-​
-var index=0;
-var koha=1000;
-function krijoSlider(){
-   document.getElementById('imazhi').src=array[index];
-   index++;
-   if(index==array.length){
-       index=0;
-   }
-​
-   setTimeout("krijoSlider()",koha);
-​
-}
-krijoSlider();*/
-​
+
 var counter =1;
 setInterval(function(){
     document.getElementById('radio' + counter).checked=true;
@@ -30,14 +7,13 @@ setInterval(function(){
         counter=1;
     }
 },2000); 
-​
-​
+
 function valido(){
     var username=document.getElementById('usernameInput').value;
     var usernameRegex=/^[A-Za-z]{5,}[0-9]{1,}$/
     var password=document.getElementById('passwordInput').value;
     var passwordRegex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/
-​
+
     if(usernameRegex.test(username)){
         
     }else{
@@ -50,8 +26,7 @@ function valido(){
     }
     
 }
-​
-​
+
 function validoSignUp(){
     var emri=document.getElementById("name").value;
     var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
@@ -61,7 +36,7 @@ function validoSignUp(){
     var userregex=/^[A-Z][a-z0-9]{3,15}$/
     var password=document.getElementById("passwordInput").value;
     var passregex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/
-​
+
     if(emriregex.test(emri)){
        
     }else{
@@ -82,10 +57,9 @@ function validoSignUp(){
     }else{
        alert("Enter password again, it should contain minimum eight characters, at least one letter and one number!");
     }
-​
-​
+
 }
-​
+
 function validoContact(){
   var emri=document.getElementById("Name-1").value;
   var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
@@ -96,7 +70,7 @@ function validoContact(){
   var date=document.getElementById("datepicker").value;
   var dateregex=/^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
   
-​
+
   if(emriregex.test(emri)){
      
   }else{
@@ -119,7 +93,6 @@ function validoContact(){
      alert("There are no free appointments for that day, try another one!");
   }
   
-​
   
   
 }
