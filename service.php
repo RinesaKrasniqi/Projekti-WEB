@@ -28,6 +28,7 @@
 
 
    <?php include '../products.php'?>
+   <?php $lajmi1 = array("Titulli" => "UBT")?>
 
    <div class="header-1"><h3>KEEPING NATIONAL CITY <br> SMILING</h3></div>
    <div class="footer">
