@@ -16,8 +16,8 @@
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.html">HOME</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="dental.html">DENTAL PLAN</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
             <li><a href="contact.html">CONTACT</a></li>
            </ul>
