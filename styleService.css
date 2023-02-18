@@ -25,7 +25,6 @@ header{
  
  }
 
-
 .nav ul.nav-list {
     list-style-type: none;
     justify-content: space-between;
@@ -142,7 +141,7 @@ header{
 }
 
 .phone-address-email h5{ 
-    color: #222;
+    color: black;
     font-size: 18px;
     line-height: 1.5em;
     font-weight: 600;
@@ -205,3 +204,52 @@ header{
     font-weight: 300;
     font-family: 'Raleway',sans-serif;
 }
+
+
+/*PRODUCTS*/
+
+.container{
+    margin-top: 20px;
+    margin-left: 140px;
+    padding:50px;
+    display: flex;
+    flex-direction: row ;
+
+}
+.product1{
+    width: 250px;
+    height:250px;
+    background-color: #fff;
+    margin:10px;
+    margin-right: 20px;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    
+}
+.container1{
+    margin-top: 20px;
+    margin-left: 140px;
+    padding:50px;
+    display: flex;
+    flex-direction: row ;
+
+}
+.container2{
+    margin-top: 20px;
+    margin-left: 140px;
+    padding:50px;
+    display: flex;
+    flex-direction: row ;
+
+}
+.img-p {
+    width: 250px;
+    height: 195px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+
+

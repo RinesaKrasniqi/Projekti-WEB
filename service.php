@@ -15,9 +15,9 @@
         </div>
         <nav class="nav" >
           <ul class="nav-list">
-          <li><a href="index.html">HOME</a></li>
-            <li><a href="dental.html">DENTAL PLAN</a></li>
+            <li><a href="index.html">HOME</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
+            <li><a href="dental.html">DENTAL PLAN</a></li>
             <li><a href="service.php">SERVICES</a></li>
             <li><a href="contact.html">CONTACT</a></li>
            </ul>
@@ -25,10 +25,47 @@
         <div class="login"><a href="login.html" >Log In</a></div>
         <div class="book-appointment"><a href="contact.html" >Book Your Appointment</a></div>
    </header>
+   <?php  include 'products.php'?>
+   <div class="container">
+   <?php 
 
+foreach($arraylist1 as $i){
+   echo '<div class="product1">';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
+   echo '</div>';
+}
 
-   <?php include '../products.php'?>
-   <?php $lajmi1 = array("Titulli" => "UBT");?>
+ ?>
+ </div>
+ <div class="container1">
+   <?php 
+
+foreach($arraylist2 as $i){
+   echo '<div class="product1">';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
+   echo '</div>';
+}
+
+ ?>
+ </div>
+ <div class="container2">
+   <?php 
+
+foreach($arraylist3 as $i){
+   echo '<div class="product1">';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
+   echo '</div>';
+}
+
+ ?>
+ </div>
+
 
    <div class="header-1"><h3>KEEPING NATIONAL CITY <br> SMILING</h3></div>
    <div class="footer">
@@ -68,7 +105,7 @@
          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3059.411166996941!2d-86.059843!3d39.9321917!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8814b2dc2e00cbd9%3A0x6ad1a9dbc1d55ebe!2sMy%20Dental%20Care!5e0!3m2!1sen!2s!4v1671559571728!5m2!1sen!2s" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
    </div>
-   
+
    <div class="footer-end">
      <p>@ My Dental Care Dentistry 2022</p>
    </div>
