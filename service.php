@@ -29,12 +29,13 @@
    <div class="container">
    <?php 
 
+
 foreach($arraylist1 as $i){
-   echo '<div class="product1">';
+   echo '<div class="product1"><a href="contact.html">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
-   echo '</div>';
+   echo '</a></div>';
 }
 
  ?>
@@ -43,11 +44,11 @@ foreach($arraylist1 as $i){
    <?php 
 
 foreach($arraylist2 as $i){
-   echo '<div class="product1">';
+   echo '<div class="product1"><a href="contact.html">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
-   echo '</div>';
+   echo '</a></div>';
 }
 
  ?>
@@ -56,13 +57,12 @@ foreach($arraylist2 as $i){
    <?php 
 
 foreach($arraylist3 as $i){
-   echo '<div class="product1">';
+   echo '<div class="product1"><a href="contact.html">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
-   echo '</div>';
+   echo '</a></div>';
 }
-
  ?>
  </div>
 
