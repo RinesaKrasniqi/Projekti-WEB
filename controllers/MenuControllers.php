@@ -31,7 +31,7 @@ class MenuController{
         $query=bindParam(':src',$request['src']);
         $query->execute();
 
-        return header('Location: Dashoard.php');
+        return header('Location: Dashboard.php');
 
 
 
