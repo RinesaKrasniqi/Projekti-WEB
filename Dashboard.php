@@ -1,3 +1,9 @@
+<?php
+
+require_once '../controllers/MenuControllers.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +41,24 @@
                 <th>Message</th>
             </tr>
         </thead>
+        <tbody>
+            <?php
+        
+        $m=new MenuControllers;
+        $allMenu=$m->readData();
+        foreach($allMenu as $contact): ?>
+
+        <tr>
+            <td><?php echo $contact['name'] ?></td>
+            <td><?php echo $contact['email'] ?></td>
+            <td><?php echo $contact['number'] ?></td>
+            <td><?php echo $contact['date'] ?></td>
+            <td><?php echo $contact['service'] ?></td>
+            <td><?php echo $contact['message'] ?></td>
+        </tr>
+        <?php  endforeach:?>
+        </tbody>
+
      </table>
     
 </body>
