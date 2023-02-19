@@ -25,13 +25,13 @@
         <div class="login"><a href="login.php" >Log In</a></div>
         <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
    </header>
+   <div class="Teksti"> <h5>Pick a service you want to apply at an appointment for</h5></div>
    <?php  include 'products.php'?>
    <div class="container">
    <?php 
 
-
 foreach($arraylist1 as $i){
-   echo '<div class="product1"><a href="contact.html">';
+   echo '<div class="product1"><a href="contact.php">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
@@ -44,7 +44,7 @@ foreach($arraylist1 as $i){
    <?php 
 
 foreach($arraylist2 as $i){
-   echo '<div class="product1"><a href="contact.html">';
+   echo '<div class="product1"><a href="contact.php">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
@@ -57,12 +57,13 @@ foreach($arraylist2 as $i){
    <?php 
 
 foreach($arraylist3 as $i){
-   echo '<div class="product1"><a href="contact.html">';
+   echo '<div class="product1"><a href="contact.php">';
    echo '<img class="img-p" src="'.$i["src"].'">';
    echo '<h5>'.$i["pershkrimi"].'</h5>';
    echo '<h3>'.$i["cmimi"].'€</h3>';
    echo '</a></div>';
 }
+
  ?>
  </div>
 
