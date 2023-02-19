@@ -48,17 +48,17 @@
             
             <p class="field-name">Services:</p>
             <select name="teeth" id="teeth" class="form-field">
-              <option value="teethcleaning">Teeth cleaning</option>
+              <option value="toothcleaning">Teeth cleaning</option>
               <option value="retainers">Retainers</option>
               <option value="charcoal">Teeth whitening treatment with charcoal</option>
-              <option value="toothfilling">Tooth Filling</option>
+              <option value="Tooth filling">Tooth Filling</option>
               <option value="crownplacement">Crown placement per tooth</option>
-              <option value="braces">Braces for upper or lower teeth</option>
+              <option value="braces">Braces</option>
               <option value="bracesrubbebands">Braces with rubber bands</option>
-              <option value="icontreatment">Icon Treatment per tooth</option>
+              <option value="icontreatment">Icon Treatment</option>
               <option value="iconTreatmentlowerupperteeth">Icon Treatment for lower or upper teeth</option>
               <option value="toothremoval">Tooth removal</option>
-              <option value="veneerpertooth">Veneer per tooth</option>
+              <option value="veneerpertooth">Veneer</option>
               <option value="teethwhitetingwithLED">Teeth whiteting with LED lights</option>
             </select>
             
