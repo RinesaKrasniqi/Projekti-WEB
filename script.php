@@ -22,7 +22,7 @@ function valido(){
     if(passwordRegex.test(password)){
         
     }else{
-        alert("Password doesn't exit, try again!");
+        alert("Password doesn't exist, try again!");
     }
     
 }

@@ -76,7 +76,7 @@
 
    <div class="create-box">
     <p>Don't have an account ?</p>
-    <a class="create-acc" href="signup.html">Create an account</a>
+    <a class="create-acc" href="signup.php">Create an account</a>
    </div>
 
 <div class="header-1"><h3>KEEPING NATIONAL CITY <br> SMILING</h3></div>
@@ -122,6 +122,6 @@
   <p>@ My Dental Care Dentistry 2022</p>
 </div>
 
-<script  type="text/javascript" src="script.js"></script>
+<script  type="text/javascript" src="script.php"></script>
 </body>
 </html>

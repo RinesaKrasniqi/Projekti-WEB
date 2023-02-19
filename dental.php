@@ -161,6 +161,6 @@
   <p>@ My Dental Care Dentistry 2022</p>
 </div>
 
-<script  type="text/javascript" src="script.js"></script>
+<script  type="text/javascript" src="script.php"></script>
 </body>
 </html>
