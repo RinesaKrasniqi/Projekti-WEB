@@ -22,7 +22,7 @@
     if($row["usertype"]=="user"){
       header("location:contact.php");
     }elseif ($row["usertype"]=="admin"){
-      header("location:dashboard.php");
+      header("location:Dashboard.php");
     }else{
       echo"username or password incorrect"; 
     }

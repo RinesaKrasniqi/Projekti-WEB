@@ -1,3 +1,14 @@
+<?php
+  require_once 'controllers/MenuControllers.php';
+   
+  $menu = new MenuControllers;
+
+  if(isset($_POST['submit'])){
+    $menu -> insert($_POST);
+  }
+ 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,18 +47,18 @@
 
   <div class="container-3">
      <div class="card-email-form">
-         <form class="contact-form">
+         <form class="contact-form" method='POST'>
             <p class="field-name">Name:</p>
-            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1">
+            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
             <p class="field-name">Email Address:</p>
-            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1">
+            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
             <p class="field-name">Phone Number:</p>
-            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1">
+            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
             <p class="field-name">Preferred Appointment Date:</p>
-            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker">
+            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="data_c">
             
             <p class="field-name">Services:</p>
-            <select name="teeth" id="teeth" class="form-field">
+            <select name="teeth" id="teeth" class="form-field" name="service_c">
               <option value="toothcleaning">Teeth cleaning</option>
               <option value="retainers">Retainers</option>
               <option value="charcoal">Teeth whitening treatment with charcoal</option>
@@ -63,8 +74,8 @@
             </select>
             
             <p class="field-name">Message:</p>
-            <textarea id="Message"  placeholder="Your message" class="textarea"></textarea>
-            <input type="submit" class="submit" id="submit">
+            <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
+            <input type="submit" class="submit" id="submit" name="submit">
         </form>
      </div>
   </div>

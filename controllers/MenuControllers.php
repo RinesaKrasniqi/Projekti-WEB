@@ -2,7 +2,7 @@
 require_once '../config/Database.php';
 
 class MenuController{
-    public db;
+    public $db;
     
 
     public function __construct(){
@@ -19,16 +19,15 @@ class MenuController{
     }
 
     public function insert($request){
-        $query=$this->db->pdo->prepare('INSERT into contact(name,email,number,date,service,message,src)
-        VALUES (:name,:email,:number,:date,:service,:message,:src)' );
+        $query=$this->db->pdo->prepare('INSERT into contact(name,email,number,date,service,message)
+        VALUES (:name,:email,:number,:date,:service,:message)');
 
-        $query=bindParam(':name',$request['name']);
-        $query=bindParam(':email',$request['email']);
-        $query=bindParam(':number',$request['number']);
-        $query=bindParam(':date',$request['date']);
-        $query=bindParam(':service',$request['service']);
-        $query=bindParam(':message',$request['message']);
-        $query=bindParam(':src',$request['src']);
+        $query=bindParam(':name',$request['name_c']);
+        $query=bindParam(':email',$request['email_c']);
+        $query=bindParam(':number',$request['number_c']);
+        $query=bindParam(':date',$request['date_c']);
+        $query=bindParam(':service',$request['service_c']);
+        $query=bindParam(':message',$request['message_c']);
         $query->execute();
 
         return header('Location: Dashboard.php');
@@ -49,14 +48,13 @@ class MenuController{
 
     public function update($request,$id){
         $query=$this->db->dbo->prepare('UPDATE contact SET name =:name,email = :email, number=:number, date=;date,service=:service,
-        message=:message,src =:src WHERE id=:id');
-        $query=bindParam(':name',$request['name']);
-        $query=bindParam(':email',$request['email']);
-        $query=bindParam(':number',$request['number']);
-        $query=bindParam(':date',$request['date']);
-        $query=bindParam(':service',$request['service']);
-        $query=bindParam(':message',$request['message']);
-        $query=bindParam(':src',$request['src']);
+        message=:message WHERE id=:id');
+        $query=bindParam(':name',$request['name_c']);
+        $query=bindParam(':email',$request['email_c']);
+        $query=bindParam(':number',$request['number_c']);
+        $query=bindParam(':date',$request['date_c']);
+        $query=bindParam(':service',$request['service_c']);
+        $query=bindParam(':message',$request['message_c']);
         $query=bindParam(':id',$request['id']);
         $query->execute();
 
