@@ -15,15 +15,15 @@
         </div>
         <nav class="nav" >
           <ul class="nav-list">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="dental.html">DENTAL PLAN</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
+            <li><a href="index.php">HOME</a></li>
+            <li><a href="dental.php">DENTAL PLAN</a></li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="contact.php">CONTACT</a></li>
            </ul>
         </nav>
-        <div class="login"><a href="login.html" >Log In</a></div>
-        <div class="book-appointment"><a href="contact.html" >Book Your Appointment</a></div>
+        <div class="login"><a href="login.php" >Log In</a></div>
+        <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
    </header>
    <?php  include 'products.php'?>
    <div class="container">
