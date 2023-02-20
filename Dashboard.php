@@ -1,8 +1,3 @@
-<?php
-
-require_once '../controllers/MenuControllers.php';
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +38,8 @@ require_once '../controllers/MenuControllers.php';
         </thead>
         <tbody>
             <?php
-        
-        $m=new MenuControllers;
+        include 'MenuControllers.php';
+        $m=new MenuControllers();
         $allMenu=$m->readData();
         foreach($allMenu as $contact): ?>
 
@@ -56,7 +51,7 @@ require_once '../controllers/MenuControllers.php';
             <td><?php echo $contact['service'] ?></td>
             <td><?php echo $contact['message'] ?></td>
         </tr>
-        <?php  endforeach:?>
+        <?php  endforeach;?>
         </tbody>
 
      </table>

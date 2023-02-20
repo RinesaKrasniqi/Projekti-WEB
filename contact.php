@@ -1,5 +1,5 @@
 <?php
-require_once '../controllers/MenuControllers.php';
+require_once '/../controllers/MenuControllers.php';
 
   $menu = new MenuControllers;
 

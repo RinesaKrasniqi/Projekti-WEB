@@ -1,8 +1,7 @@
 <?php
 
-public class Database{
+ class Database{
     public $pdo;
-
 
     public function __construct(){
         try{
@@ -16,6 +15,7 @@ public class Database{
     }
     
 }
+
 
 
 ?>
