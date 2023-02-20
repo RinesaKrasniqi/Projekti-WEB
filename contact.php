@@ -1,7 +1,7 @@
 <?php
-require_once '/../controllers/MenuControllers.php';
+require_once 'MenuControllers.php';
 
-  $menu = new MenuControllers;
+  $menu = new MenuController();
 
   if(isset($_POST['submit'])){
     $menu -> insert($_POST);

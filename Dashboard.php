@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +37,9 @@
         </thead>
         <tbody>
             <?php
+            //include
         include 'MenuControllers.php';
+
         $m=new MenuControllers();
         $allMenu=$m->readData();
         foreach($allMenu as $contact): ?>
