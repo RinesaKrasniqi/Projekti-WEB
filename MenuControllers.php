@@ -19,7 +19,7 @@ class MenuController{
     }
 
     public function insert($request){
-        $query=$this->db->pdo->prepare('INSERT into contact(name,email,number,date,service,message)
+        $query=$this->db->pdo->prepare('INSERT INTO contact(name,email,number,date,service,message)
         VALUES (:name,:email,:number,:date,:service,:message)');
 
         $query=bindParam(':name',$request['name_c']);
@@ -31,10 +31,6 @@ class MenuController{
         $query->execute();
 
         return header('Location: Dashboard.php');
-
-
-
-
     }
 
     public function edit($id){
@@ -42,12 +38,11 @@ class MenuController{
         $query->bindParam(':id',$id);
         $query->execute();
         return $query->fetch();
-
-
     }
 
     public function update($request,$id){
-        $query=$this->db->dbo->prepare('UPDATE contact SET name =:name,email = :email, number=:number, date=;date,service=:service,
+        //ose db ose pdo
+        $query=$this->db->pdo->prepare('UPDATE contact SET name =:name,email = :email, number=:number, date=;date,service=:service,
         message=:message WHERE id=:id');
         $query=bindParam(':name',$request['name_c']);
         $query=bindParam(':email',$request['email_c']);
@@ -55,22 +50,19 @@ class MenuController{
         $query=bindParam(':date',$request['date_c']);
         $query=bindParam(':service',$request['service_c']);
         $query=bindParam(':message',$request['message_c']);
-        $query=bindParam(':id',$request['id']);
+        $query->bindParam(':id', $id);
         $query->execute();
-
         return header('Location: Dashboard.php');
 
 
     }
 
-    public function delete(){
-        $query=$this->db->dbo->prepare('DELETE FROM contact WHERE id=:id');
-        $query->bindParam(':id',$id);
+    public function delete($id){
+        $query = $this->db->pdo->prepare('DELETE from contact WHERE id=:id');
+        $query->bindParam(':id', $id);
         $query->execute();
-        return header('Location: Dashboard.php');
-        
 
-
+        return header("Location: Dashboard.php");
     }
     
 }
