@@ -40,7 +40,7 @@
             //include
         include 'MenuControllers.php';
 
-        $m=new MenuControllers();
+        $m=new MenuController();
         $allMenu=$m->readData();
         foreach($allMenu as $contact): ?>
 
