@@ -48,14 +48,14 @@ require_once 'MenuControllers.php';
         foreach($allMenu as $contact): ?>
 
         <tr>
-            <td><?php echo $contact['name'] ?></td>
-            <td><?php echo $contact['email'] ?></td>
-            <td><?php echo $contact['phone'] ?></td>
-            <td><?php echo $contact['date'] ?></td>
-            <td><?php echo $contact['service'] ?></td>
-            <td><?php echo $contact['message'] ?></td>
-            <td><a href="">Edit</td>
-            <td><a href="">Delete</td>
+            <td><?php echo $contact['name_c'] ?></td>
+            <td><?php echo $contact['email_c'] ?></td>
+            <td><?php echo $contact['phone_c'] ?></td>
+            <td><?php echo $contact['date_c'] ?></td>
+            <td><?php echo $contact['service_c'] ?></td>
+            <td><?php echo $contact['message_c'] ?></td>
+            <td><a href="editContact.php?id=<?php echo $contact['ID'];?>">Edit</td>
+            <td><a href="deleteContact.php?id=<?php echo $contact['ID'];?>">Delete</td>
         </tr>
         <?php  endforeach;?>
         </tbody>

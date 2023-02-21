@@ -24,7 +24,7 @@ class MenuController{
         $query->bindParam(':name',$request['name_s']);
         $query->bindParam(':email',$request['email_s']);
         $query->bindParam(':username',$request['username_s']);
-        $query->bindParam(':password',$request['password_c']);
+        $query->bindParam(':password',$request['password_s']);
         $query->execute();
 
     }

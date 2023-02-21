@@ -44,10 +44,10 @@ require_once 'MenuControllerSignup.php';
         foreach($allMenu as $contact): ?>
 
         <tr>
-            <td><?php echo $contact['name'] ?></td>
-            <td><?php echo $contact['email'] ?></td>
-            <td><?php echo $contact['username'] ?></td>
-            <td><?php echo $contact['password'] ?></td>
+            <td><?php echo $contact['name_s'] ?></td>
+            <td><?php echo $contact['email_s'] ?></td>
+            <td><?php echo $contact['username_s'] ?></td>
+            <td><?php echo $contact['password_s'] ?></td>
             <td><a href="">Edit</td>
             <td><a href="">Delete</td>
         </tr>
