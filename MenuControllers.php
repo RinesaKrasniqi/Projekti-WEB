@@ -39,7 +39,7 @@ class MenuController{
     }
 
     public function update($request,$id){
-        $query=$this->db->pdo->prepare('UPDATE contact SET name =:name,email = :email, phone=:phones, date=;date,service=:service,
+        $query=$this->db->pdo->prepare('UPDATE contact SET name =:name,email = :email, phone=:phone, date=;date,service=:service,
         message=:message WHERE id=:id');
         $query->bindParam(':name',$request['name_c']);
         $query->bindParam(':email',$request['email_c']);
@@ -49,7 +49,7 @@ class MenuController{
         $query->bindParam(':message',$request['message_c']);
         $query->bindParam(':id', $id);
         $query->execute();
-        return header('Location: Dashboard.php');
+        return header('Location: DashboardContact.php');
 
 
     }
@@ -59,7 +59,7 @@ class MenuController{
         $query->bindParam(':id', $id);
         $query->execute();
 
-        return header("Location: Dashboard.php");
+        return header("Location: DashboardContact.php");
     }
     
 }

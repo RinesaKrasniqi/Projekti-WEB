@@ -1,20 +1,19 @@
 <?php
-require_once 'MenuControllers.php';
+require_once 'MenuControllerSignup.php';
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Contact</title>
-
+    <title>Dashboard Signup</title>
     <style>
         
          .content-table {
             width: 100%;
-            background-color: #9d7a13;
+            background-color: blue;
             padding: 20px;
             border-radius: 10px;
          }
@@ -25,18 +24,15 @@ require_once 'MenuControllers.php';
          }
 
      </style>
-
-</head>
-<body>
-     <table class="content-table">
+ </head>
+ <body>
+ <table class="content-table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Data</th>
-                <th>Service</th>
-                <th>Message</th>
+                <th>Username</th>
+                <th>Password</th>
             </tr>
         </thead>
         <tbody>
@@ -50,10 +46,8 @@ require_once 'MenuControllers.php';
         <tr>
             <td><?php echo $contact['name'] ?></td>
             <td><?php echo $contact['email'] ?></td>
-            <td><?php echo $contact['phone'] ?></td>
-            <td><?php echo $contact['date'] ?></td>
-            <td><?php echo $contact['service'] ?></td>
-            <td><?php echo $contact['message'] ?></td>
+            <td><?php echo $contact['username'] ?></td>
+            <td><?php echo $contact['password'] ?></td>
             <td><a href="">Edit</td>
             <td><a href="">Delete</td>
         </tr>
@@ -62,5 +56,6 @@ require_once 'MenuControllers.php';
 
      </table>
 
-</body>
-</html>
+ </body>
+ </html>
+

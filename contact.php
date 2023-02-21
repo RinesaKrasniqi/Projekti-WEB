@@ -74,7 +74,7 @@
             
             <p class="field-name">Message:</p>
             <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
-            <input type="submit" class="submit" id="submit" name="submit">
+            <input type="submit" class="submit" id="submit" name="submit" onclick="validoContact()">
         </form>
      </div>
   </div>
