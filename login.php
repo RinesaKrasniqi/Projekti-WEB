@@ -1,32 +1,12 @@
 <?php
- $host ="localhost";
- $user ="root";
- $password= "";
- $db="user";
+require_once 'MenuControllers.php';
 
- $data= mysqli_connect($host,$user,$password,$db);
- if($data===false){
-  die("connection error");
- }
+  $menu = new MenuController();
 
- if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $username=$_POST["username"];
-    $password=$_POST["password"];
-
-    $sql="select * from login where username= '".$username."' AND  password= '".$password."'";
-
-    $result=mysqli_query($data,$sql);
-
-    $row = mysqli_fetch_array($result);
-
-    if($row["usertype"]=="user"){
-      header("location:contact.php");
-    }elseif ($row["usertype"]=="admin"){
-      header("location:Dashboard.php");
-    }else{
-      echo"username or password incorrect"; 
-    }
- }
+  if(isset($_POST['submit'])){
+    $menu->insert($_POST);
+  }
+ 
 ?>
 
 <!DOCTYPE html>

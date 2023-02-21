@@ -1,3 +1,14 @@
+<?php
+require_once 'MenuControllers.php';
+
+  $menu = new MenuController();
+
+  if(isset($_POST['submit'])){
+    $menu->insert($_POST);
+  }
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

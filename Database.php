@@ -6,9 +6,9 @@
     public function __construct(){
         try{
             session_start();
-            $link=new PDO('mysql:host=localhost;dbname=contact','root','');
+            $link=new PDO('mysql:host=localhost;dbname=Dental','root','');
             $this->pdo=$link;
-//$conn = new PDO("mysql:host=$servername;port=8889;dbname=AppDatabase", $username, $password); 
+        //$conn = new PDO("mysql:host=$servername;port=8889;dbname=AppDatabase", $username, $password); 
         }catch(PDOException $exception){
              die($exception->getMessage());
         }
