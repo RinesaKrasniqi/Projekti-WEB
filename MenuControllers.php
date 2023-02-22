@@ -49,7 +49,7 @@ class MenuController{
         $query->bindParam(':message',$request['message_c']);
         $query->bindParam(':id', $id);
         $query->execute();
-        return header('Location: DashboardContact.php');
+        return header('Location: Dashboard.php');
 
 
     }
@@ -59,7 +59,7 @@ class MenuController{
         $query->bindParam(':id', $id);
         $query->execute();
 
-        return header("Location: DashboardContact.php");
+        return header("Location: Dashboard.php");
     }
     
 }
