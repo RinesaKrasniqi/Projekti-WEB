@@ -1,12 +1,29 @@
 <?php
-require_once 'MenuControllers.php';
+require 'function.php';
 
-  $menu = new MenuController();
+  if(isset($_SESSION["id"])){
+    header("Location: index.php");
+   }
 
-  if(isset($_POST['submit'])){
-    $menu->insert($_POST);
+  $login = new Login();
+
+  if(isset($_POST["submit"])){
+      
+    $result= $login->signin($_POST["usernameemail"], $_POST["password"]);
+
+    if($result == 1){
+      $_SESSION["signin"]=true;
+      $_SESSION["id"]=$login->idUser();
+      header("Location: index.php");
+      
+    }elseif($result == 10){
+      echo "<script>alert ('Wrong password');</script>";
+    }elseif($result == 100){
+      echo "<script>alert ('User not registered');</script>";
+    }
   }
  
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +43,11 @@ require_once 'MenuControllers.php';
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
+            <?php 
+                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
+                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
+                         }
+                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
@@ -40,13 +62,13 @@ require_once 'MenuControllers.php';
 
    <div class="container-1">
      <div class="login-form">
-        <form class="form">
-            <p class="field-name">Username</p>
-            <input type="text" class="form-control" id="usernameInput" name="username">
+        <form class="form" action="validimi.php" method="post">
+            <p class="field-name">Username or Email</p>
+            <input type="text" class="form-control" id="usernameInput" name="usernameemail" required value="">
             <p class="field-name">Password</p>
-            <input id="passwordInput" type="password" class="form-control"  name="password">
+            <input id="passwordInput" type="password" class="form-control"  name="password" required value="">
 
-            <button type="submit" id="btn-login" class="submit" onclick="valido()">Submit</button>
+            <button type="submit" name="submit" id="btn-login" class="submit" onclick="valido()">Login</button>
         </form>
     </div>
    </div>
@@ -101,6 +123,6 @@ require_once 'MenuControllers.php';
   <p>@ My Dental Care Dentistry 2022</p>
 </div>
 
-<script  type="text/javascript" src="script.php"></script>
+
 </body>
 </html>

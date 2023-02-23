@@ -1,14 +1,25 @@
 <?php
-require_once 'MenuControllers.php';
+require 'function.php';
 
-  $menu = new MenuController();
+if(isset($_SESSION["id"])){
+  header("Location: index.php");
+ }
 
-  if(isset($_POST['submit'])){
-    $menu->insert($_POST);
+  $register = new Register();
+
+  if(isset($_POST["submit"])){
+    $result = $register->registration($_POST["name"], $_POST["email"], $_POST["username"], $_POST["password"], $_POST["confirmpassword"]);
+    
+    if($result == 1){
+      echo "<script>alert ('Registration Succrssful');</script>";
+    }elseif($result == 10){
+      echo "<script>alert ('Username or Email has already been taken');</script>";
+    }elseif($result == 100){
+      echo "<script>alert ('Password does not match');</script>";
+    }
   }
- 
-?>
 
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +37,11 @@ require_once 'MenuControllers.php';
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
+            <?php 
+                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
+                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
+                         }
+                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
@@ -39,18 +55,20 @@ require_once 'MenuControllers.php';
    <h2 class="text">Sign Up</h2>
 
    <div class="container-1">
-     <div class="login-form">
-        <form class="form">
+     <div class="login-form"> 
+        <form class="form" action=""  method="post" autocomplete="off">
             <p class="field-name">Name</p>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="name" name="name" required value="">
             <p class="field-name">Email</p>
-            <input type="email" class="form-control" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" required value="">
             <p class="field-name">Username</p>
-            <input type="text" class="form-control" id="usernameInput" name="username">
+            <input type="text" class="form-control" id="usernameInput" name="username" required value="">
             <p class="field-name">Password</p>
-            <input id="passwordInput" type="password" class="form-control" name="password">
+            <input id="passwordInput" type="password" class="form-control" name="password" required value="">
+            <p class="field-name">Confirm Password</p>
+            <input id="passwordInput" type="password" class="form-control" name="confirmpassword" required value="">
 
-            <button type="submit" id="btn-login" class="submit" onclick="validoSignUp()">Sign Up</button>
+            <button type="submit" name="submit" id="btn-login" class="submit" onclick="validoSignUp()" >Sign Up</button>
         </form>
     </div>
    </div>
@@ -98,7 +116,8 @@ require_once 'MenuControllers.php';
 <div class="footer-end">
   <p>@ My Dental Care Dentistry 2022</p>
 </div>
+ 
 
-<script  type="text/javascript" src="script.php"></script>
+
 </body>
 </html>

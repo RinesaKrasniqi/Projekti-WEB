@@ -1,7 +1,7 @@
 <?php
-  require_once 'MenuControllers.php';
+  require_once 'function.php';
   
-  $menu = new MenuController;
+  $menu = new Connection();
   if(isset($_POST['submit'])){
       $menu->insert($_POST);
   }
@@ -25,6 +25,11 @@
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
+            <?php 
+                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
+                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
+                         }
+                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
