@@ -49,6 +49,7 @@ if(isset($_SESSION["id"])){
            </ul>
         </nav>
         <div class="login"><a href="login.php" >Log In</a></div>
+        <div class="login"><a href="logout.php" >Log out</a></div>
         <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
    </header>
  
