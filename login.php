@@ -36,19 +36,20 @@ require 'function.php';
     <link rel="stylesheet" href="styleL.css" >
 </head>
 <body>
-    <header class="header">
+
+<header class="header">
         <div class="logo">
             <img src="Images/logo.png" class="logo" width="70px">
         </div>
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
-            <?php 
-                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
-                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
-                         }
-                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
+            <?php 
+            if ( isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
+              echo' <li><a href="Dashboard.php">Dashboard</a></li>';
+            }
+            ?>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
             <li><a href="contact.php">CONTACT</a></li>
@@ -57,6 +58,8 @@ require 'function.php';
         <div class="login"><a href="login.php" >Log In</a></div>
         <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
    </header>
+          
+
  
    <h2 class="text">Have we met?</h2>
 
