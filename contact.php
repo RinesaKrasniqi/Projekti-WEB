@@ -59,8 +59,6 @@
             <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
             <p class="field-name">Phone Number:</p>
             <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
-            <p class="field-name">Preferred Appointment Date:</p>
-            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="data_c">
             <p class="field-name">Services:</p>
             <textarea id="teeth" placeholder="Your Service" class="form-field" name="service_c"></textarea>
             <p class="field-name">Message:</p>
