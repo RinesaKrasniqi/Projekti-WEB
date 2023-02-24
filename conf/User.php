@@ -16,9 +16,9 @@
     //     $this->password = $password;
     //  }
 
-function setSession(){
-$_SESSION["roli"] = 0;
-$_SESSION['Statusi'] = "Perdorues";
+//function setSession(){
+//$_SESSION["roli"] = 0;
+//$_SESSION['Statusi'] = "Perdorues";
 }
 
 // function setCookie(){
@@ -76,7 +76,7 @@ public function setRole($role){
             $username = $this->getUsername();
             $password= $this->getPassword();
             //$role= $this->getRole();
-            $query = "INSERT INTO user(name,email,username,password) VALUES ('$name','$email','$username','$password')";
+            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('$name','$email','$username','$password','$role')";
             $conn->exec($query);
         }catch(PDOException $e) {
             echo $query . "<br>" . $e->getMessage();

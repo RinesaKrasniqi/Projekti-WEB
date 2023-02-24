@@ -17,10 +17,10 @@ class Admin{
     //     $this->password = $password;
     //  }
 
- function setSession(){
- $_SESSION["role"] = 1;
- $_SESSION['Statusi'] = "Admin";
- }
+// function setSession(){
+ //$_SESSION["role"] = 1;
+ //$_SESSION['Statusi'] = "Admin";
+ //}
 
 // }
 
@@ -81,7 +81,7 @@ public function setRole($role){
             $username = $this->getUsername();
             $password= $this->getPassword();
             //$role= $this->getRole();
-            $query = "INSERT INTO user(name,email,username,password) VALUES ('admin','$email','$username','$password')";
+            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('admin','$email','$username','$password','$role')";
             
             $conn->exec($query);
         }catch(PDOException $e) {
