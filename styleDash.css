@@ -1,0 +1,23 @@
+/*Table*/
+
+
+.user { 
+    position: relative;
+    top: 50px;
+    left: 150px;
+    width: 900px;
+    box-shadow: 10px 5px 5px #917e46;
+    background-color: #9d7a13;
+    border-radius: 10px;
+   
+}
+
+.user .user-table  {
+    width: 100%;
+    padding: 20px;
+ }
+
+ .user-table thead tr {
+    color: aliceblue;
+    font-size: 16px;
+ }
