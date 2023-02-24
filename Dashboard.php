@@ -52,23 +52,20 @@
             </tr>
         </thead>
         <tbody>
-         <?php
-            //include
-             $m=new Connection();
-             $allMenu=$m->readData();
-             if($allMenu != null){
-             foreach($allMenu as $contact){?>
-        <tr>
-            <td><?php echo $contact['name_c'] ?></td>
-            <td><?php echo $contact['email_c'] ?></td>
-            <td><?php echo $contact['phone_c'] ?></td>
-            <td><?php echo $contact['date_c'] ?></td>
-            <td><?php echo $contact['service_c'] ?></td>
-            <td><?php echo $contact['message_c'] ?></td>
-            <td><a href="editContact.php?id=<?php echo $contact['ID'];?>">Edit</td>
-            <td><a href="deleteContact.php?id=<?php echo $contact['ID'];?>">Delete</td>
-        </tr>
-        <?php  }}?>
+        <?php
+            $m=new Connection();
+            $all=$m->readData();
+            foreach($all as $value) {
+            ?>
+             <tr>
+            <td><?php echo $value['name_c']?></td>
+            <td><?php echo $value['email_c']?></td>
+            <td><?php echo $value['phone_c']?></td>
+            <td><?php echo $value['service_c']?></td>
+            <td><?php echo $value['message_c']?></td>
+            </tr>
+           <?php } ?>
+
         </tbody>
 
      </table>
