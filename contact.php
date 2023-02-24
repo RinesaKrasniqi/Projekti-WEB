@@ -52,7 +52,7 @@
 
   <div class="container-3">
      <div class="card-email-form">
-         <form class="contact-form" method='POST'>
+     <form class="contact-form" method='POST'>
             <p class="field-name">Name:</p>
             <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
             <p class="field-name">Email Address:</p>
@@ -61,23 +61,8 @@
             <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
             <p class="field-name">Preferred Appointment Date:</p>
             <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="data_c">
-            
             <p class="field-name">Services:</p>
-            <select name="teeth" id="teeth" class="form-field" name="service_c">
-              <option value="toothcleaning">Teeth cleaning</option>
-              <option value="retainers">Retainers</option>
-              <option value="charcoal">Teeth whitening treatment with charcoal</option>
-              <option value="Tooth filling">Tooth Filling</option>
-              <option value="crownplacement">Crown placement per tooth</option>
-              <option value="braces">Braces</option>
-              <option value="bracesrubbebands">Braces with rubber bands</option>
-              <option value="icontreatment">Icon Treatment</option>
-              <option value="iconTreatmentlowerupperteeth">Icon Treatment for lower or upper teeth</option>
-              <option value="toothremoval">Tooth removal</option>
-              <option value="veneerpertooth">Veneer</option>
-              <option value="teethwhitetingwithLED">Teeth whiteting with LED lights</option>
-            </select>
-            
+            <textarea id="teeth" placeholder="Your Service" class="form-field" name="service_c"></textarea>
             <p class="field-name">Message:</p>
             <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
             <input type="submit" class="submit" id="submit" name="submit" onclick="validoContact()">

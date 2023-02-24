@@ -1,23 +1,33 @@
 <?php
-require 'function.php';
+//require 'function.php';
+require 'User.php';
 
-if(isset($_SESSION["id"])){
+if (isset($_POST['submit'])){
+  $regj= new User();
+  $regj->setEmri($_POST['name']);
+  $regj->setEmail($_POST['email']);
+  $regj->setUsername($_POST['username']);
+  $regj->setPassword($_POST['password']);
+  $regj->insert1();
+
+}
+/*if(isset($_SESSION["id"])){
   header("Location: index.php");
  }
 
-  $register = new Register();
+ $register = new Register();
 
   if(isset($_POST["submit"])){
     $result = $register->registration($_POST["name"], $_POST["email"], $_POST["username"], $_POST["password"], $_POST["confirmpassword"]);
     
     if($result == 1){
-      echo "<script>alert ('Registration Succrssful');</script>";
+      echo "<script>alert ('Registration Successful');</script>";
     }elseif($result == 10){
       echo "<script>alert ('Username or Email has already been taken');</script>";
     }elseif($result == 100){
       echo "<script>alert ('Password does not match');</script>";
     }
-  }
+  }*/
 
   ?>
 <!DOCTYPE html>

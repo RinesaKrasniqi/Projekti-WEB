@@ -26,21 +26,19 @@ function setCookie(){
 public function getRole(){
     return 0;
 }
+public function getEmri(){
+ return $this->emer;
+} 
+
+public function getEmail(){
+     return $this->email;
+}
 public function getUsername(){
     return $this->username;
 }
 
 public function getPasword(){
     return $this->password;
-}
-public function getEmri(){
- return $this->emer;
-} 
-public function getMbiemri(){
-    return $this->mbiemer;
-}
-public function getEmail(){
-     return $this->email;
 }
 
 
@@ -50,9 +48,6 @@ public function setEmri($emri){
     $this->emer=$emri;
 }
 
-public function setMbiemri($mbiemer){
-    $this->mbiemer=$mbiemer; 
-}
 
 public function setEmail($email){
     $this->email=$email;
@@ -65,6 +60,16 @@ public function setPassword($password){
     $this->password=$password;  
 }
 
+
+public function insert1($data){
+      $name = $data['name'];
+      $email= $data['email'];
+      $username = $data['username'];
+      $password=$data['password'];
+      $query = "INSERT INTO signup(name,email,username,password) VALUES ('$name','$email','$username','$password')";
+      $this->conn->query($query);
+  }
 }
+  
 ?>
 

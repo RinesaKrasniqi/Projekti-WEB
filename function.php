@@ -28,19 +28,32 @@
   
 }
 
-public function insert($request){
-   $query=$this->db->pdo->prepare('INSERT INTO contact(name,email,phone,date,service,message)
+/*public function insert($request){
+   $query=$this->db->prepare('INSERT INTO contact(name,email,phone,date,service,message)
    VALUES (:name,:email,:phone,:date,:service,:message)');
 
    $query->bindParam(':name',$request['name_c']);
    $query->bindParam(':email',$request['email_c']);
-   $query->bindParam(':phone',$request['phone_c']);
+   $query->bindParam(':phone',$request['number_c']);
    $query->bindParam(':date',$request['date_c']);
    $query->bindParam(':service',$request['service_c']);
    $query->bindParam(':message',$request['message_c']);
    $query->execute();
 
+}*/
+public function insert($data){
+  $name = $data['name_c'];
+    $email= $data['email_c'];
+    $phone = $data['number_c'];
+    $date=$data['date_c'];
+    $service=$data['service_c'];
+    $message=$data['message_c'];
+    $query = "INSERT INTO contact(name,email,phone,date,service,message) VALUES ('$name','$email', '$phone','$date','$service','$message')";
+   $this->conn->query($query);
 }
+
+
+
 
 public function edit($id){
    $query=$this->db->pdo->prepare('SELECT* FROM contact WHERE id =:id');
@@ -77,7 +90,7 @@ public function delete($id){
 
 
 
- class Register extends Connection {
+ /*class Register extends Connection {
     public function registration($name,$email,$username,$password,$confirmpassword){
         $duplicate = mysqli_query($this->conn, "SELECT * FROM signup WHERE username = '$username' OR email = '$email'");
       
@@ -96,7 +109,7 @@ public function delete($id){
         }
       }
     }
- }
+ }*/
 
 
  class Login extends Connection{
