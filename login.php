@@ -1,3 +1,21 @@
+<?php
+require_once 'conf/User.php';
+if (isset($_POST['login'])){
+    $regj= new User();
+    $regj->setEmri($_POST['username']);
+    $regj->setPassword($_POST['password']);
+    if($regj->existsUser()){
+        echo 'Useri ekziston ne databaze';
+    }else{
+        echo 'Useri nuk ekziston';
+    }
+  }
+    
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +26,7 @@
     <link rel="stylesheet" href="styleL.css" >
 </head>
 <body>
-<?php include 'headfooter/header.php';?>
+<?php include_once 'headfooter/header.php';?>
  
    <h2 class="text">Have we met?</h2>
 
@@ -20,7 +38,7 @@
             <p class="field-name">Password</p>
             <input id="passwordInput" type="password" class="form-control"  name="password">
 
-            <button type="submit" id="btn-login" class="submit" onclick="valido()">Submit</button>
+            <button type="submit" id="btn-login" name="login" class="submit" onclick="valido()">Submit</button>
         </form>
     </div>
    </div>
@@ -32,7 +50,7 @@
     <a class="create-acc" href="signup.php">Create an account</a>
    </div>
 
-   <?php include 'headfooter/footer.php';?>
+   <?php include_once 'headfooter/footer.php';?>
 
 <script  type="text/javascript" src="script.js"></script>
 </body>

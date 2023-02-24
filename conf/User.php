@@ -22,6 +22,16 @@
 // function setCookie(){
 //     setcookie("username",$this->username,time()+30*60);
 // }
+public function setSession()
+    {
+        $_SESSION["role"] = "0";
+        $_SESSION['roleName'] = "SimpleUser";
+    }
+
+ public function setCookie()
+{
+     setcookie("username", $this->getUsername(), time() + 2 * 24 * 60 * 60);
+}
 
 public function getRole(){
     return 0;
@@ -80,7 +90,25 @@ public function setRole($role){
             echo $query . "<br>" . $e->getMessage();
         }
     }
+
+    public function existsUser(){
+            $connObj = new dbConnect();
+            $conn = $connObj->connectDB();
+            $name = $this->getEmri();
+            $email=  $this->getEmail();
+            $username = $this->getUsername();
+            $password= $this->getPassword();
+            $role=$this->getRole();
+            //$role= $this->getRole();
+            $query = "select* from user";
+            $conn->exec($query);
+            if ($role == 1) {
+                return true;
+            } else {
+                return false;
+    }
 }
+ }
   
 ?>
 

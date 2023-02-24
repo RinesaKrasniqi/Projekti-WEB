@@ -26,6 +26,14 @@ class Admin{
 //     setcookie("username",$this->username,time()+30*60);
 // }
 
+public function setSession(){
+    $_SESSION["role"] = 1;
+    $_SESSION['roleName'] = "Administrator";
+}
+public function setCookie()
+{
+    setcookie("name:", $this->getName(), time() + 2 * 24 * 60 * 60);
+}
 
 public function getRole(){
     return 1;

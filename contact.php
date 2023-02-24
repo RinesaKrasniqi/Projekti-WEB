@@ -11,7 +11,6 @@ if (isset($_POST['submit'])){
   $regj->insertUserContact();
 
   }
-  echo '<script>alert("ok contact");</script>';
 
 ?>
 
