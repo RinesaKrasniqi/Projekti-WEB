@@ -1,45 +1,19 @@
 <?php
-require_once 'conf/Admin.php';
+require_once 'conf/UserContact.php';
 if (isset($_POST['submit'])){
-  $ad= new Admin();
-  if($ad->getName()=='admin'){
-  $ad->setName($_POST['name_c']);
-  $ad->setEmail($_POST['email_c']);
-  $ad->setPhone($_POST['phone_c']);
-  $ad->setService($_POST['service_c']);
-  $ad->setSession();
-  $ad->insertAdmin();
+  $regj= new UserContact();
+  $regj->setName($_POST['name_c']);
+  $regj->setEmail($_POST['email_c']);
+  $regj->setPhone($_POST['number_c']);
+  $regj->setService($_POST['service_c']);
+  $regj->setMessage($_POST['message_c']);
+  //$regj->setSession();
+  $regj->insertUserContact();
 
   }
-  echo '<script>alert("ok Admin");</script>';
-}
-
-
-
+  echo '<script>alert("ok contact");</script>';
 
 ?>
-
-
-<?php
-  require_once 'conf/User.php';
-  
-  if (isset($_POST['submit'])){
-    $regj= new User();
-    if($regj->getEmri()!='admin'){
-    $regj->setEmri($_POST['name_c']);
-    $regj->setEmail($_POST['email_c']);
-    $regj->setPhone($_POST['phone_c']);
-    $regj->setService($_POST['service_c']);
-    $regj->setSession();
-    $regj->insertUser();
-    }
-    echo '<script>alert("ok register");</script>';
-  }
-
-?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,8 +1,6 @@
 <?php
   require_once 'conn.php';
  class User{
-   
-
     public $name;
     public $email;
     public $username;
@@ -19,7 +17,7 @@
 //function setSession(){
 //$_SESSION["roli"] = 0;
 //$_SESSION['Statusi'] = "Perdorues";
-}
+//}
 
 // function setCookie(){
 //     setcookie("username",$this->username,time()+30*60);

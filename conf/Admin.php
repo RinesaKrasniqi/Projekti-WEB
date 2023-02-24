@@ -2,8 +2,6 @@
 require_once 'conn.php';
 
 class Admin{
-   
-
     public $name;
     public $email;
     public $username;
