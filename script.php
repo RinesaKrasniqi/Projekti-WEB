@@ -6,7 +6,7 @@ setInterval(function(){
     if(counter>3){
         counter=1;
     }
-},2000); 
+},2000);
 
 function valido(){
     var username=document.getElementById('usernameInput').value;
@@ -22,14 +22,14 @@ function valido(){
     if(passwordRegex.test(password)){
         
     }else{
-        alert("Password doesn't exist, try again!");
+        alert("Password doesn't exit, try again!");
     }
     
 }
 
 function validoSignUp(){
     var emri=document.getElementById("name").value;
-    var emriregex=/^[A-Z][a-z]{3,15}$/
+    var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
     var email=document.getElementById("email").value;
     var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
     var user=document.getElementById("usernameInput").value;
@@ -40,7 +40,7 @@ function validoSignUp(){
     if(emriregex.test(emri)){
        
     }else{
-       alert("name should have 1 capital letter and at least 3 letters");
+       alert("name should have 1 capital letter to the name, a space, and a capital letter for surname!");
     }
     if(emailregex.test(email)){
        
@@ -66,7 +66,7 @@ function validoContact(){
   var email=document.getElementById("Email-1").value;
   var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
   var phone=document.getElementById("Phone-Number-1").value;
-  var phoneregex=/^[0-9]{9}$/
+  var phoneregex=/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/
   var date=document.getElementById("datepicker").value;
   var dateregex=/^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
   
@@ -84,7 +84,7 @@ function validoContact(){
   if(phoneregex.test(phone)){
      
   }else{
-     alert("phone number should have at least 9 digits");
+     alert("phone number should be in this format: 000-000-000!");
   }
   
   if(dateregex.test(date)){

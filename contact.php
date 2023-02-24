@@ -1,13 +1,46 @@
 <?php
-  require_once 'function.php';
-  
-  $menu = new Connection();
-  if(isset($_POST['submit'])){
-      $menu->insert($_POST);
+require_once 'conf/Admin.php';
+if (isset($_POST['submit'])){
+  $ad= new Admin();
+  if($ad->getName()=='admin'){
+  $ad->setName($_POST['name_c']);
+  $ad->setEmail($_POST['email_c']);
+  $ad->setPhone($_POST['phone_c']);
+  $ad->setService($_POST['service_c']);
+  $ad->setSession();
+  $ad->insertAdmin();
+
   }
-  
+  echo '<script>alert("ok Admin");</script>';
+}
+
+
+
 
 ?>
+
+
+<?php
+  require_once 'conf/User.php';
+  
+  if (isset($_POST['submit'])){
+    $regj= new User();
+    if($regj->getEmri()!='admin'){
+    $regj->setEmri($_POST['name_c']);
+    $regj->setEmail($_POST['email_c']);
+    $regj->setPhone($_POST['phone_c']);
+    $regj->setService($_POST['service_c']);
+    $regj->setSession();
+    $regj->insertUser();
+    }
+    echo '<script>alert("ok register");</script>';
+  }
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +58,6 @@
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
-            <?php 
-                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
-                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
-                         }
-                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
@@ -37,7 +65,6 @@
            </ul>
         </nav>
         <div class="login"><a href="login.php" >Log In</a></div>
-        <div class="login"><a href="logout.php" >Log out</a></div>
         <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
    </header>
    
@@ -52,15 +79,17 @@
 
   <div class="container-3">
      <div class="card-email-form">
-     <form class="contact-form" method='POST'>
+         <form class="contact-form" method='POST'>
             <p class="field-name">Name:</p>
             <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
             <p class="field-name">Email Address:</p>
             <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
             <p class="field-name">Phone Number:</p>
             <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
-            <p class="field-name">Services:</p>
-            <textarea id="teeth" placeholder="Your Service" class="form-field" name="service_c"></textarea>
+            <p class="field-name">Preferred Appointment Date:</p>
+            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="date_c">
+            <p class="field-name">Write your preffered service:</p>
+            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service_c">
             <p class="field-name">Message:</p>
             <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
             <input type="submit" class="submit" id="submit" name="submit" onclick="validoContact()">

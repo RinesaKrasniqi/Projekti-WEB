@@ -1,42 +1,25 @@
-<?php
-//require 'function.php';
-require 'User.php';
+<?php 
+  require_once 'conf/User.php';
 
-if (isset($_POST['submit'])){
-  $regj= new User();
-  $regj->setEmri($_POST['name']);
-  $regj->setEmail($_POST['email']);
-  $regj->setUsername($_POST['username']);
-  $regj->setPassword($_POST['password']);
-  $regj->insert1();
+  if (isset($_POST['submit'])){
+    $regj= new User();
+    $regj->setEmri($_POST['nameInput']);
+    $regj->setEmail($_POST['email']);
+    $regj->setUsername($_POST['username']);
+    $regj->setPassword($_POST['password']);
+    $regj->insertUser();
+    echo '<script>alert("ok register");</script>';
+  }
+?>
 
-}
-/*if(isset($_SESSION["id"])){
-  header("Location: index.php");
- }
 
- $register = new Register();
-
-  if(isset($_POST["submit"])){
-    $result = $register->registration($_POST["name"], $_POST["email"], $_POST["username"], $_POST["password"], $_POST["confirmpassword"]);
-    
-    if($result == 1){
-      echo "<script>alert ('Registration Successful');</script>";
-    }elseif($result == 10){
-      echo "<script>alert ('Username or Email has already been taken');</script>";
-    }elseif($result == 100){
-      echo "<script>alert ('Password does not match');</script>";
-    }
-  }*/
-
-  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dental Care</title>
+    <title>My Dental Care2</title>
     <link rel="stylesheet" href="styleS.css" >
 </head>
 <body>
@@ -47,11 +30,6 @@ if (isset($_POST['submit'])){
         <nav class="nav" >
           <ul class="nav-list">
             <li><a href="index.php">HOME</a></li>
-            <?php 
-                    if (isset($_SESSION['roli'])&& $_SESSION['roli']==1) {
-                         echo '<li><a href="Dashboard.php">Dashboard</a></li>';
-                         }
-                ?>
             <li><a href="dental.php">DENTAL PLAN</a></li>
             <li><a href="aboutus.php">ABOUT US</a></li>
             <li><a href="service.php">SERVICES</a></li>
@@ -59,27 +37,24 @@ if (isset($_POST['submit'])){
            </ul>
         </nav>
         <div class="login"><a href="login.php" >Log In</a></div>
-        <div class="login"><a href="logout.php" >Log out</a></div>
-        <div class="book-appointment"><a href="contact.php" >Book Your Appointment</a></div>
+        <div class="book-appointment"><a href="contact.html" >Book Your Appointment</a></div>
    </header>
  
    <h2 class="text">Sign Up</h2>
 
    <div class="container-1">
-     <div class="login-form"> 
-        <form class="form" action=""  method="post" autocomplete="off">
+     <div class="login-form">
+        <form class="form" action="" method="post" autocomplete="off">
             <p class="field-name">Name</p>
-            <input type="text" class="form-control" id="name" name="name" required value="">
+            <input type="text" class="form-control" id="nameInput" name="nameInput">
             <p class="field-name">Email</p>
-            <input type="email" class="form-control" id="email" name="email" required value="">
+            <input type="email" class="form-control" id="email" name="email">
             <p class="field-name">Username</p>
-            <input type="text" class="form-control" id="usernameInput" name="username" required value="">
+            <input type="text" class="form-control" id="username" name="username">
             <p class="field-name">Password</p>
-            <input id="passwordInput" type="password" class="form-control" name="password" required value="">
-            <p class="field-name">Confirm Password</p>
-            <input id="passwordInput" type="password" class="form-control" name="confirmpassword" required value="">
+            <input id="password" type="password" class="form-control" name="password">
 
-            <button type="submit" name="submit" id="btn-login" class="submit" onclick="validoSignUp()" >Sign Up</button>
+            <button name="submit" type="submit" id="btn-login" class="submit" onclick="validoSignUp()">Sign Up</button>
         </form>
     </div>
    </div>
@@ -127,8 +102,7 @@ if (isset($_POST['submit'])){
 <div class="footer-end">
   <p>@ My Dental Care Dentistry 2022</p>
 </div>
- 
 
-
+<script  type="text/javascript" src="script.js"></script>
 </body>
 </html>
