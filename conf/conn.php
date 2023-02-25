@@ -19,6 +19,11 @@ class dbConnect{
         return $this->conn;
     }
 
+    protected static function getConn()
+{
+    return $conn;
+}
+
 }
 
 

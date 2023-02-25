@@ -4,16 +4,22 @@ require_once 'conf/conn.php';
 require_once 'conf/Admin.php';
 require_once 'conf/loginVerify.php';
 
-$log=new Login();
-if(isset($_POST['login'])){
-    $query=$log->signin($_POST['username']);
+//session_start();
+session_start();
+$user = new User();
 
-    if($query==1){
-        $_SESSION['login']=true;
-        $_SESSIOn['id']=$log->UserId();
-        header('Location :../contact.php');
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+
+    if ($user->login($username)) {
+        header('Location: index.php');
+        exit();
+    } else {
+        $error = 'Invalid username or password';
     }
 }
+
+?>
 
 
 ?>
