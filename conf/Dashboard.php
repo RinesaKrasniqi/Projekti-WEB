@@ -18,7 +18,7 @@ include_once './userMapper.php';
     <link rel="stylesheet" href="../styleDash.css" >
 </head>
 <body>
-<h2>User list:</h2>
+    <h2 class="user-h2">User list:</h2>
     <div class="user">
         <table  class="user-table">
             <thead>

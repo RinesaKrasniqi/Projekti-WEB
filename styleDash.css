@@ -1,6 +1,11 @@
 /*Table*/
 
+.user-h2{
+    color: red;
+    position: relative;
+    left: 20px;
 
+}
 .user { 
     position: relative;
     top: 50px;
@@ -17,7 +22,8 @@
     padding: 20px;
  }
 
- .user-table thead tr {
-    color: aliceblue;
-    font-size: 16px;
+ .user-table thead tr td{
+    color: #9d7a13;
+    font-size: 36px;
  }
+
