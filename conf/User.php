@@ -1,6 +1,6 @@
 <?php
   require_once 'conn.php';
- class User{
+ class User {
     public $name;
     public $email;
     public $username;
@@ -14,14 +14,6 @@
     //     $this->password = $password;
     //  }
 
-//function setSession(){
-//$_SESSION["roli"] = 0;
-//$_SESSION['Statusi'] = "Perdorues";
-//}
-
-// function setCookie(){
-//     setcookie("username",$this->username,time()+30*60);
-// }
 public function setSession()
     {
         $_SESSION["role"] = "0";
@@ -50,8 +42,6 @@ public function getUsername(){
 public function getPassword(){
     return $this->password;
 }
-
-
 // Setters
 
 public function setEmri($emri){
@@ -78,7 +68,6 @@ public function setRole($role){
         try {
             $connObj = new dbConnect();
             $conn = $connObj->connectDB();
-
             $name = $this->getEmri();
             $email=  $this->getEmail();
             $username = $this->getUsername();
@@ -91,23 +80,6 @@ public function setRole($role){
         }
     }
 
-    public function existsUser(){
-            $connObj = new dbConnect();
-            $conn = $connObj->connectDB();
-            $name = $this->getEmri();
-            $email=  $this->getEmail();
-            $username = $this->getUsername();
-            $password= $this->getPassword();
-            $role=$this->getRole();
-            //$role= $this->getRole();
-            $query = "select* from user";
-            $conn->exec($query);
-            if ($role == 1) {
-                return true;
-            } else {
-                return false;
-    }
-}
  }
   
 ?>

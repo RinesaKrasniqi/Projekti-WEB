@@ -15,17 +15,6 @@ class Admin{
     //     $this->password = $password;
     //  }
 
-// function setSession(){
- //$_SESSION["role"] = 1;
- //$_SESSION['Statusi'] = "Admin";
- //}
-
-// }
-
-// function setCookie(){
-//     setcookie("username",$this->username,time()+30*60);
-// }
-
 public function setSession(){
     $_SESSION["role"] = 1;
     $_SESSION['roleName'] = "Administrator";

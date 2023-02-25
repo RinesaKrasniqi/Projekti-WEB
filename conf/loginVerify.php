@@ -3,8 +3,8 @@ include_once 'Admin.php';
 include_once 'User.php';
 require_once 'userMapper.php';
 session_start();
-//main
-if (isset($_POST['login'])) {
+/*/main
+/if (isset($_POST['login'])) {
     $login = new LoginLogic($_POST);
     $login->verifyData();
 } else if (isset($_POST['submit'])) {
@@ -68,6 +68,7 @@ class LoginLogic
     }
 }
 
+
 /*class RegisterLogic{
     private $username = "";
     private $password = "";
@@ -86,3 +87,8 @@ class LoginLogic
         header("Location:../signup.php");
     }
 }*/
+
+
+
+
+?>

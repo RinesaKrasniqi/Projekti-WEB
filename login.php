@@ -1,17 +1,7 @@
 <?php
 require_once 'conf/User.php';
-if (isset($_POST['login'])){
-    $regj= new User();
-    $regj->setEmri($_POST['username']);
-    $regj->setPassword($_POST['password']);
-    if($regj->existsUser()){
-        echo 'Useri ekziston ne databaze';
-    }else{
-        echo 'Useri nuk ekziston';
-    }
-  }
-    
-
+require_once 'conf/conn.php';
+require_once 'conf/Admin.php';
 
 
 ?>

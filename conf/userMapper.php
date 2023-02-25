@@ -52,20 +52,14 @@ class UserMapper extends dbConnect{
         return $result;
     }
 
-    /*public function insertUser(\SimpleUser $user)
+    public function getAllUsersContact()
     {
-        $this->query = "insert into User (userName, userLastName,userPassword, role) values (:username,:lastname,:pass,:role)";
+        $this->query = "select * from contact";
         $statement = $this->conn->prepare($this->query);
-        $username = $user->getUsername();
-        $lastname = $user->getLastname();
-        $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT);
-        $role = $user->getRole();
-        $statement->bindParam(":username", $username);
-        $statement->bindParam(":lastname", $lastname);
-        $statement->bindParam(":pass", $pass);
-        $statement->bindParam(":role", $role);
         $statement->execute();
-    }*/
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     public function deleteUser($userId)
     {
@@ -74,4 +68,12 @@ class UserMapper extends dbConnect{
         $statement->bindParam(":id", $userId);
         $statement->execute();
     }
+
+
+
+
+
+
+
+    
 }
