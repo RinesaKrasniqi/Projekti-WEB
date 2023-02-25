@@ -1,16 +1,19 @@
 <?php
 require_once 'conf/UserContact.php';
-if (isset($_POST['submit'])){
-  $regj= new UserContact();
-  $regj->setName($_POST['name_c']);
-  $regj->setEmail($_POST['email_c']);
-  $regj->setPhone($_POST['number_c']);
-  $regj->setService($_POST['service_c']);
-  $regj->setMessage($_POST['message_c']);
-  //$regj->setSession();
-  $regj->insertUserContact();
-
+  if(isset($_POST["submit"])){
+    $regj= new UserContact();
+    $name=$regj->setName($_POST['name_c']);
+    $email=$regj->setEmail($_POST['email_c']);
+    $number=$regj->setPhone($_POST['number_c']);
+    $service=$regj->setService($_POST['service_c']);
+    $message=$regj->setMessage($_POST['message_c']);
+    if(empty($_POST['name_c']) || empty($_POST['email_c']) || empty($_POST['number_c']) || empty($_POST['service_c'])|| empty($_POST['message_c']) ){
+      echo '<script>alert("All fields are required");</script>';
+    }else{
+    $regj->insertUserContact();
+    echo '<script>alert("you are succesfully registred!!");</script>';
   }
+}
 
 ?>
 

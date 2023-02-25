@@ -1,15 +1,18 @@
 <?php
 require_once "conn.php";
+require_once "User.php";
 
 class UserMapper extends dbConnect{
     private $conn;
     private $query;
+    private $user;
 
     public function __construct()
     {
         $this->conn = $this->connectDB();
     }
 
+    //edit
     public function getUserByID($userId)
     {
         $this->query = "select * from user where id=:id";
@@ -20,18 +23,22 @@ class UserMapper extends dbConnect{
         return $result;
     }
 
-    public function edit($user, $id)
+    //update
+    public function update(\User $user, $id)
     {
-        $this->query = "update user set username=:username where id=:id";
+        $this->query = "UPDATE user SET name=:name, email=:email username=:username where id=:id";
         var_dump($user);
         $statement = $this->conn->prepare($this->query);
-        $lastname = $user->getUsername();
-        $password=$user->getPassword();
+        $name = $user->getEmri();
+        $email = $user->getEmail();
+        $username = $user->getUsername();
+        $statement->bindParam(":name", $name);
+        $statement->bindParam(":email", $email);
         $statement->bindParam(":username", $username);
-        $statement->bindParam(":password", $password);
         $statement->bindParam(":id", $id);
         $statement->execute();
     }
+
 
     public function getUserByUsername($username)
     {

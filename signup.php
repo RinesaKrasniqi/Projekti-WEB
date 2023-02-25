@@ -1,15 +1,22 @@
 <?php 
   require_once 'conf/User.php';
+  require_once 'conf/Admin.php';
 
-  if (isset($_POST['submit'])){
+
+  if(isset($_POST["submit"])){
     $regj= new User();
-    $regj->setEmri($_POST['nameInput']);
-    $regj->setEmail($_POST['email']);
-    $regj->setUsername($_POST['username']);
-    $regj->setPassword($_POST['password']);
+    $name=$regj->setEmri($_POST['nameInput']);
+    $email=$regj->setEmail($_POST['email']);
+    $username=$regj->setUsername($_POST['username']);
+    $pass=$regj->setPassword($_POST['password']);
+    if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
+      echo '<script>alert("All fields are required");</script>';
+    }else{
     $regj->insertUser();
-    echo '<script>alert("ok register");</script>';
+    echo '<script>alert("you are succesfully registred!!");</script>';
   }
+}
+
 ?>
 
 

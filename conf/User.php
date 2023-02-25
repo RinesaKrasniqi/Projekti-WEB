@@ -13,8 +13,8 @@
      $this->name = $name;
      $this->email = $email;
      $this->username = $username;
-      $this->password = $password;
-      $this->conn =$conn;
+    $this->password = $password;
+    $this->conn =$conn;
     }
 
 public function setSession()
@@ -83,31 +83,8 @@ public function setRole($role){
         }
     }
 
+    
 
-
-    public function login($username) {
-
-        $conn=static::getConn();
-        $stmt = $this->conn->prepare("SELECT * FROM user WHERE username =:username");
-        $stm->bindParam(':username',$username,PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch();
-
-        if ($user) {
-            $_SESSION['id'] = $user['id'];
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function isLoggedIn() {
-        return isset($_SESSION['id']);
-    }
-
-    public function logout() {
-        unset($_SESSION['id']);
-    }
 }
 ?>
 

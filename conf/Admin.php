@@ -76,7 +76,7 @@ public function setRole($role){
             $username = $this->getUsername();
             $password= $this->getPassword();
             //$role= $this->getRole();
-            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('admin','$email','$username','$password','$role')";
+            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('$name','$email','$username','$password','1')";
             
             $conn->exec($query);
         }catch(PDOException $e) {
@@ -85,16 +85,4 @@ public function setRole($role){
     }
 }
   
-?>
-
-
-
-
-
-
-
-
-
-
-
 ?>
