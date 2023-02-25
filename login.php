@@ -2,6 +2,18 @@
 require_once 'conf/User.php';
 require_once 'conf/conn.php';
 require_once 'conf/Admin.php';
+require_once 'conf/loginVerify.php';
+
+$log=new Login();
+if(isset($_POST['login'])){
+    $query=$log->signin($_POST['username']);
+
+    if($query==1){
+        $_SESSION['login']=true;
+        $_SESSIOn['id']=$log->UserId();
+        header('Location :../contact.php');
+    }
+}
 
 
 ?>
