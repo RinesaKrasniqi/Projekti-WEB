@@ -131,7 +131,7 @@ public function setRole($role){
         }
     }
 
-    /*public function adminfunction(){
+    public function adminfunction(){
         try{
         $query="SELECT * FROM user WHERE EXISTS(SELECT * FROM user WHERE username='admin', password='admin')";
         $stm=$this->conn->prepare($query);
@@ -152,9 +152,9 @@ public function setRole($role){
     }catch(Exception $e){
         return $e->getMessage();
     }
-}*/
+}
 
-function record_exists() {
+/*function record_exists() {
     $query = "SELECT * FROM user WHERE username ='admin'";
     $result =$this->conn->prepare($query);
     if (count( $result)==1 ) {
@@ -162,7 +162,7 @@ function record_exists() {
     } else {
         return false;
     }
-}
+}*/
 
 
 }

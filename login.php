@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
   $username=$info->setUsername($_POST['username']);
   $password=$info->setPassword($_POST['password']);
   $login=$info->login();
-  $admin=$perdorues->record_exists();
+  $admin=$perdorues->adminfunction();
     if($login){
       if($admin){
          header('Location: conf/Dashboard.php');
