@@ -18,8 +18,8 @@ include_once '../conf/userMapper.php';
    <div class="container-1">
      <div class="login-form">
      <?php
-              include_once '../conf/User.php';
-              $model = new User();
+              include_once '../conf/UserContact.php';
+              $model = new UserContact();
               $id = $_GET['id'];
               $row = $model->editC($id);
  

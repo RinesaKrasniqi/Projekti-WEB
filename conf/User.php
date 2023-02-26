@@ -123,26 +123,6 @@ public function setRole($role){
             }
         }
 
-
-        public function editC($id){
-            $data = null;
-            $query = "SELECT * FROM contact WHERE id = '$id'";
-            if ($sql = $this->conn->query($query)) {
-                while($row = $sql->fetchAll()){
-                    $data = $row;
-                }
-            }
-            return $data;
-        }
- 
-        public function updateC($data){
-            $query = "UPDATE contact SET name='$data[name]', email='$data[email]', phone='$data[phone]',service='$data[service]',message='$data[message]' WHERE id='$data[id] '";
-            if ($sql = $this->conn->query($query)) {
-                return true;
-            }else{
-                return false;
-            }
-        }
     
 
 }
