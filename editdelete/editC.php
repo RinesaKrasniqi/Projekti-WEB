@@ -1,5 +1,6 @@
 <?php
-include_once '../conf/userMapper.php';   
+include_once '../conf/userMapper.php'; 
+  
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +28,11 @@ include_once '../conf/userMapper.php';
                 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['service']) && isset($_POST['message'])) {
                      
                     $data['id'] = $id;
-                    $data['name'] = $_POST['name_c'];
-                    $data['email'] = $_POST['email_c'];
-                    $data['phone'] = $_POST['number_c'];
-                    $data['service'] = $_POST['service_c'];
-                    $data['message'] = $_POST['message_c'];
+                    $data['name'] = $_POST['name'];
+                    $data['email'] = $_POST['email'];
+                    $data['phone'] = $_POST['number'];
+                    $data['service'] = $_POST['service'];
+                    $data['message'] = $_POST['message'];
  
                     $update = $model->updateC($data);
  
@@ -51,15 +52,15 @@ include_once '../conf/userMapper.php';
           ?>
      <form class="contact-form" action="" method="post">
             <p class="field-name">Name:</p>
-            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
+            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name">
             <p class="field-name">Email Address:</p>
-            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
+            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email">
             <p class="field-name">Phone Number:</p>
-            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
+            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number">
             <p class="field-name">Write your preffered service:</p>
-            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service_c">
+            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service">
             <p class="field-name">Message:</p>
-            <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
+            <textarea id="Message"  placeholder="Your message" class="textarea" name="message"></textarea>
 
            <button name="submit" type="submit" id="btn-login" class="submit" >Update</button>
         </form>
