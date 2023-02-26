@@ -104,14 +104,6 @@ class UserMapper extends dbConnect{
     }
 
 
-    public function getAllServices()
-    {
-        $this->query = "select * from services";
-        $statement = $this->conn->prepare($this->query);
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
 
 
 

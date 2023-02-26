@@ -1,13 +1,3 @@
-<?php
-require_once 'conf/conn.php';
-require_once 'conf/userMapper.php';
-
-$mapper =  new UserMapper();
-$userList = $mapper->getAllPlan();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,47 +13,46 @@ $userList = $mapper->getAllPlan();
   <?php include 'headfooter/header.php';?>
 
    <div class="Teksti"> <h5>Pick a service you want to apply at an appointment for</h5></div>
-   <?php  foreach ($userList as $user) {?>
+   <?php  include 'products.php'?>
    <div class="container">
    <?php 
 
-//foreach($arraylist1 as $i){
-   <div class="product1"><a href="contact.php">';
-   <img class="img-p" src="'$user['src']'">';
-   '<h5>'$user["pershkrimi"]'</h5>';
-   '<h3>' <?php echo $user["cmimi"]  ?> '€</h3>';
-    '</a></div>';
-//}
+foreach($arraylist1 as $i){
+   echo '<div class="product1"><a href="contact.php">';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
+   echo '</a></div>';
+}
 
  ?>
  </div>
  <div class="container1">
    <?php 
 
-//foreach($arraylist2 as $i){
+foreach($arraylist2 as $i){
    echo '<div class="product1"><a href="contact.php">';
-   echo '<img class="img-p" src="'.$user["src"].'">';
-   echo '<h5>'.$user["pershkrimi"].'</h5>';
-   echo '<h3>'.$user["cmimi"].'€</h3>';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
    echo '</a></div>';
-//}
+}
 
  ?>
  </div>
  <div class="container2">
    <?php 
 
-//foreach($arraylist3 as $i){
+foreach($arraylist3 as $i){
    echo '<div class="product1"><a href="contact.php">';
-   echo '<img class="img-p" src="'.$user["src"].'">';
-   echo '<h5>'.$user["pershkrimi"].'</h5>';
-   echo '<h3>'.$user["cmimi"].'€</h3>';
+   echo '<img class="img-p" src="'.$i["src"].'">';
+   echo '<h5>'.$i["pershkrimi"].'</h5>';
+   echo '<h3>'.$i["cmimi"].'€</h3>';
    echo '</a></div>';
-//}
+}
 
  ?>
  </div>
- <?php  }  ?>
 
 
 <?php include 'headfooter/footer.php';?>

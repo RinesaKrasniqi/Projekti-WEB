@@ -93,7 +93,7 @@ public function setMessage($message){
     }
 
     public function updateC($data){
-        $query = "UPDATE contact SET name='$data[name]', email='$data[email]', phone='$data[phone]',service='$data[service]',message='$data[message]' WHERE id='$data[id] '";
+        $query = "UPDATE contact SET name='$data[name_c]', email='$data[email_c]', phone='$data[number_c]',service='$data[service_c]',message='$data[message_c]' WHERE id='$data[id] '";
         if ($sql = $this->conn->query($query)) {
             return true;
         }else{
