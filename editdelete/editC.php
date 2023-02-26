@@ -1,27 +1,5 @@
 <?php
-
-include_once '../conf/userMapper.php';
-include_once '../conf/User.php';
-
-if (isset($_POST['submit'])) {
-  if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['username'])) {
-
-   $nameD = $_GET['name'];
-   $emailD = $_GET['email'];
-   $usernameD = $_GET['username'];
-   $user=array("name"=>"$nameD","email"=>"$emailD","username"=>"$usernameD","id"=>$userIdD);
-  
-   $mapper = new UserMapper();
-   $update = $mapper->update($user);
-   
-   if($update){
-      echo "<script>alert('record update successfully');</script>";
-    }else{
-      echo "<script>alert('record update failed');</script>";
-    }
-}
-}
-   
+include_once '../conf/userMapper.php';   
 ?>
 
 <!DOCTYPE html>
@@ -39,20 +17,51 @@ if (isset($_POST['submit'])) {
 
    <div class="container-1">
      <div class="login-form">
-     <form class="contact-form" method='POST'>
+     <?php
+              include_once '../conf/User.php';
+              $model = new User();
+              $id = $_GET['id'];
+              $row = $model->editC($id);
+ 
+              if (isset($_POST['submit'])) {
+                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['service']) && isset($_POST['message'])) {
+                     
+                    $data['id'] = $id;
+                    $data['name'] = $_POST['name'];
+                    $data['email'] = $_POST['email'];
+                    $data['phone'] = $_POST['phone'];
+                    $data['service'] = $_POST['service'];
+                    $data['message'] = $_POST['message'];
+ 
+                    $update = $model->updateC($data);
+ 
+                    if($update){
+                      echo "<script>alert('record update successfully');</script>";
+                      echo "<script>window.location.href = '../conf/Dashboard.php';</script>";
+                    }else{
+                      echo "<script>alert('record update failed');</script>";
+                      echo "<script>window.location.href = '../conf/Dashboard.php';</script>";
+                    }
+ 
+                  }else{
+                    echo "<script>alert('empty');</script>";
+                    header("Location: editC.php?id=$id");
+                  }
+                }
+          ?>
+     <form class="contact-form" action="" method="post">
             <p class="field-name">Name:</p>
-            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
+            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name">
             <p class="field-name">Email Address:</p>
-            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
+            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email">
             <p class="field-name">Phone Number:</p>
-            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
-            <p class="field-name">Preferred Appointment Date:</p>
-            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="date_c">
+            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number">
             <p class="field-name">Write your preffered service:</p>
-            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service_c">
+            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service_">
             <p class="field-name">Message:</p>
-            <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
-            <input type="submit" class="submit" id="submit" name="submit"">
+            <textarea id="Message"  placeholder="Your message" class="textarea" name="message"></textarea>
+
+           <button name="submit" type="submit" id="btn-login" class="submit" >Update</button>
         </form>
     </div>
    </div>
