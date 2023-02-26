@@ -1,18 +1,25 @@
 <?php
-  require_once 'conn.php';
+require_once 'conn.php';
  class UserContact{
     public $name;
     public $email;
     public $phone;
     public $service;
     public $message;
+    public $id;
    
-    public function construct($name,$email,$phone,$service,$message){
-        $this->name = $name;
-        $this->email = $email;
-        $this->phone = $phone;
-        $this->message = $message;
-      }
+    public function __construct($conn=""){
+        $connObj = new dbConnect();
+        $this->conn = $connObj->connectDB();
+    }
+
+
+ public function getId(){
+        return $this->id;
+}
+public function setId($id){
+        $this->id=$id;
+    }
 
 public function getName(){
  return $this->name;
@@ -71,6 +78,26 @@ public function setMessage($message){
             $conn->exec($query);
         }catch(PDOException $e) {
             echo $query . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function editC($id){
+        $data = null;
+        $query = "SELECT * FROM contact WHERE id = '$id'";
+        if ($sql = $this->conn->query($query)) {
+            while($row = $sql->fetchAll()){
+                $data = $row;
+            }
+        }
+        return $data;
+    }
+
+    public function updateC($data){
+        $query = "UPDATE contact SET name='$data[name]', email='$data[email]', phone='$data[phone]',service='$data[service]',message='$data[message]' WHERE id='$data[id] '";
+        if ($sql = $this->conn->query($query)) {
+            return true;
+        }else{
+            return false;
         }
     }
 }
