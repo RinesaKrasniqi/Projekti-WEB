@@ -1,6 +1,7 @@
 <?php
   require_once 'conn.php';
  class User {
+    public $id;
     public $name;
     public $email;
     public $username;
@@ -9,13 +10,10 @@
     public $conn;
 
    
-    // public function __construct($name,$email,$username,$password,$conn){
-    //  $this->name = $name;
-    //  $this->email = $email;
-    //  $this->username = $username;
-    // $this->password = $password;
-    // $this->conn =$conn;
-    // }
+     public function __construct($conn=""){
+     $connObj = new dbConnect();
+     $this->conn = $connObj->connectDB();
+     }
 
 public function setSession(){
         $_SESSION["role"] = "0";
@@ -26,6 +24,14 @@ public function setSession(){
 {
      setcookie("username", $this->getUsername(), time() + 2 * 24 * 60 * 60);
 }
+
+public function getId(){
+    return $this->id;
+}
+public function setId($id){
+    $this->id=$id;
+}
+
 
 public function getRole(){
     return $this->role;
@@ -95,6 +101,27 @@ public function setRole($role){
         }
     }
 
+
+        
+        public function edit($id){
+            $data = null;
+            $query = "SELECT * FROM user WHERE id = '$id'";
+            if ($sql = $this->conn->query($query)) {
+                while($row = $sql->fetchAll()){
+                    $data = $row;
+                }
+            }
+            return $data;
+        }
+ 
+        public function update($data){
+            $query = "UPDATE user SET name='$data[name]', email='$data[email]', username='$data[username]' WHERE id='$data[id] '";
+            if ($sql = $this->conn->query($query)) {
+                return true;
+            }else{
+                return false;
+            }
+        }
     
 
 }

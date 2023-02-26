@@ -7,13 +7,16 @@ class UserMapper extends dbConnect{
     private $query;
     private $user;
 
-    public function __construct()
+    public function __construct($query="",$user="",$conn="")
     {
-        $this->conn = $this->connectDB();
+        $this->query=$query;
+        $this->user=$user;
+        $connObj = new dbConnect();
+        $this->conn = $connObj->connectDB();
     }
 
     //edit
-    public function getUserByID($userId)
+   /* public function getUserByID($userId)
     {
         $this->query = "SELECT * FROM user where id=:id";
         $statement = $this->conn->prepare($this->query);
@@ -26,17 +29,16 @@ class UserMapper extends dbConnect{
 
        public function update(){
           try{
-           
-            $sqlStm = "UPDATE user SET name=?, email=?,username=? where id=?";
-            $stm = $this->conn->prepare($sqlStm);
-            $stm->execute();
-            echo "<script>alert('dhenat jane Perditsuar me sukses');</script>";
+            $sql ="UPDATE user SET name=?, email=?,username=? where id=?";
+            $stm=$this->conn->prepare($sql);
+            $stm->execute([$this->name, $this->email,$this->username]);
+            echo "<script>alert('te dhenat jane Perditsuar me sukses');</script>";
             }
             catch(Exception $e){
             return $e->getMessage();
             }
        }
-
+*/
 
 
     public function getUserByUsername($username)
