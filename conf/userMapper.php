@@ -15,7 +15,7 @@ class UserMapper extends dbConnect{
     //edit
     public function getUserByID($userId)
     {
-        $this->query = "select * from user where id=:id";
+        $this->query = "SELECT * FROM user where id=:id";
         $statement = $this->conn->prepare($this->query);
         $statement->bindParam(":id", $id);
         $statement->execute();
@@ -23,21 +23,20 @@ class UserMapper extends dbConnect{
         return $result;
     }
 
-    //update
-    public function update(\User $user, $id)
-    {
-        $this->query = "UPDATE user SET name=:name, email=:email username=:username where id=:id";
-        var_dump($user);
-        $statement = $this->conn->prepare($this->query);
-        $name = $user->getEmri();
-        $email = $user->getEmail();
-        $username = $user->getUsername();
-        $statement->bindParam(":name", $name);
-        $statement->bindParam(":email", $email);
-        $statement->bindParam(":username", $username);
-        $statement->bindParam(":id", $id);
-        $statement->execute();
-    }
+
+       public function update(){
+          try{
+           
+            $sqlStm = "UPDATE user SET name=?, email=?,username=? where id=?";
+            $stm = $this->conn->prepare($sqlStm);
+            $stm->execute();
+            echo "<script>alert('dhenat jane Perditsuar me sukses');</script>";
+            }
+            catch(Exception $e){
+            return $e->getMessage();
+            }
+       }
+
 
 
     public function getUserByUsername($username)
@@ -71,6 +70,14 @@ class UserMapper extends dbConnect{
     public function deleteUser($userId)
     {
         $this->query = "delete from user where id=:id";
+        $statement = $this->conn->prepare($this->query);
+        $statement->bindParam(":id", $userId);
+        $statement->execute();
+    }
+
+    public function deleteContact($userId)
+    {
+        $this->query = "delete from contact where id=:id";
         $statement = $this->conn->prepare($this->query);
         $statement->bindParam(":id", $userId);
         $statement->execute();

@@ -1,18 +1,32 @@
 <?php
-require_once 'conf/User.php';
 require_once 'conf/conn.php';
-require_once 'conf/Admin.php';
 require_once 'conf/loginVerify.php';
 
-session_start();
+//session_start();
 
-if (isset($_POST["login"])) {
-   if(getRole()==1){
-    header( 'Location: Dashboard.php');
+if (isset($_POST['login'])) {
+  require_once 'conf/loginVerify.php';
+  $info=new loginVerify();
+  $perdorues=new User();
+  $emriUserit=$info->getUsername();
+  $passUserit=$info->getPassword();
+  $username=$info->setUsername($_POST['username']);
+  $password=$info->setPassword($_POST['password']);
+  $login=$info->login();
+  $admin=$info->adminfunction();
+   if($login){
+      if($admin){
+        header('Location: conf/Dashboard.php');
+        exit();
+       }else{
+       header('Location: index.php');
+       exit();
+   }
    }else{
-     header( 'Location: Dashboard.php');
+    echo '<script>alert("Invalid username or password");</script>';
    }
 }
+
 
 ?>
 
@@ -32,7 +46,7 @@ if (isset($_POST["login"])) {
 
    <div class="container-1">
      <div class="login-form">
-        <form class="form" action="login" method ="POST">
+        <form class="form" action="login.php" method ="POST">
             <p class="field-name">Username</p>
             <input type="text" class="form-control" id="usernameInput" name="username">
             <p class="field-name">Password</p>

@@ -10,13 +10,15 @@ class loginVerify{
     private $password;
     private $conn;
 
-    public function __construct($ID,$username,$password){
+    public function __construct($ID=0,$username="",$password="",$conn=""){
         $this->ID=$ID;
         $this->username=$username;
         $this->password=$password;
-        $this->conn=new PDO("mysql:host='localhost';dbname='dental_db'",'root','');
-       // $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) . "<br/>";
-       // $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC) . "<br/>";
+        $connObj = new dbConnect();
+        $this->conn = $connObj->connectDB();
+    //     $this->conn=new PDO("mysql:host='localhost';dbname='dental_db'",'root',"");
+    //    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) . "<br/>";
+    //    $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC) . "<br/>";
     }
 
     public function getID(){
@@ -53,16 +55,16 @@ class loginVerify{
         }
     }
 
-  /*  public function login(){
+   public function login(){
         try{
-        $stm=$this->conn->prepare('SELECT * FROM user WHERE username=? and password=?');
+        $stm=$this->conn->prepare("SELECT * FROM user WHERE username=? and password=?");
         $stm->execute([$this->username,$this->password]);
         $user=$stm->fetchAll();
         if(count($user)>0){
             session_start();
-            $_SESSION['id']=$user['id'];
-            $_SESSION['email']=$user['email'];
-            $_SESSION['password']=$user['password'];
+            $_SESSION['id']=$user[0]['id'];
+            $_SESSION['username']=$user[0]['username'];
+            $_SESSION['password']=$user[0]['password'];
             return true;
 
         }else{
@@ -72,30 +74,28 @@ class loginVerify{
         return $e->getMessage();
     }
 
-    }*/
-    public function verify(){
-        try {
-            $connObj = new dbConnect();
-            $conn = $connObj->connectDB();
-            $name = $this->getEmri();
-            $email=  $this->getEmail();
-            $username = $this->getUsername();
-            $password= $this->getPassword();
-            //$role= $this->getRole();
-            $stm=$this->conn->prepare("SELECT * from user where 'username'='$username', 'password'='$password'");
-            $stm->execute();
-            $nr=$stm->fetchAll();
-            if(count($nr)>0){
-                session_start();
-                return true;
-            }else{
-                return false;
-            }
-
-        }catch(PDOException $e) {
-            echo $query . "<br>" . $e->getMessage();
-        }
     }
+
+    public function adminfunction(){
+        try{
+        $stm=$this->conn->prepare("SELECT * FROM user WHERE username='admin' and password='admin'");
+        $stm->execute([$this->username,$this->password]);
+        $user=$stm->fetchAll();
+        if(count($user)>0){
+            session_start();
+            $_SESSION['id']=$user[0]['id'];
+            $_SESSION['username']=$user[0]['admin'];
+            $_SESSION['password']=$user[0]['admin'];
+            return true;
+
+        }else{
+            false;
+        }
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+}
+
 
 }
 

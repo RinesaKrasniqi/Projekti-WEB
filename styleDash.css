@@ -46,7 +46,7 @@
     display: flex;
     text-decoration: none;
     text-decoration-color: none;
-    color: #fff ;
+    color: #fff;
     background-color: #9d7a13;
     width: 200px;
     height: 50px;
@@ -58,4 +58,10 @@
 .logout a:hover{
     color: #695723;
     background-color: #c4af71;
+}
+
+.admin a {
+    display: flex;
+    text-decoration: none;
+    text-decoration-color: none;
 }

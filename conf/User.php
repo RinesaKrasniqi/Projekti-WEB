@@ -9,16 +9,15 @@
     public $conn;
 
    
-    public function construct($name,$email,$username,$password,$conn){
-     $this->name = $name;
-     $this->email = $email;
-     $this->username = $username;
-    $this->password = $password;
-    $this->conn =$conn;
-    }
+    // public function __construct($name,$email,$username,$password,$conn){
+    //  $this->name = $name;
+    //  $this->email = $email;
+    //  $this->username = $username;
+    // $this->password = $password;
+    // $this->conn =$conn;
+    // }
 
-public function setSession()
-    {
+public function setSession(){
         $_SESSION["role"] = "0";
         $_SESSION['roleName'] = "SimpleUser";
     }
@@ -29,7 +28,7 @@ public function setSession()
 }
 
 public function getRole(){
-    return 0;
+    return $this->role;
 }
 public function getEmri(){
  return $this->name;
@@ -75,11 +74,24 @@ public function setRole($role){
             $email=  $this->getEmail();
             $username = $this->getUsername();
             $password= $this->getPassword();
-            //$role= $this->getRole();
-            $query = "INSERT INTO user(name,email,username,password) VALUES ('$name','$email','$username','$password')";
+            $role= $this->getRole();
+            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('$name','$email','$username','$password','$role')";
             $conn->exec($query);
         }catch(PDOException $e) {
             echo $query . "<br>" . $e->getMessage();
+        }
+    }
+
+    public function AdminOrUser(){
+        $connObj = new dbConnect();
+        $conn = $connObj->connectDB();
+        $user=new User();
+        $username = $this->getUsername();
+        $password= $this->getPassword();
+        if($user['username']=='admin' && $user['password']=='admin'){
+            return false;
+        }else{
+            return true;
         }
     }
 

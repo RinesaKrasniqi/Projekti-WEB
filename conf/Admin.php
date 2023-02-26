@@ -8,12 +8,14 @@ class Admin{
     public $password;
     public $role=1;
    
-    // public function construct($name,$email,$username,$password){
-    //     $this->name = $name;
-    //     $this->email = $email;
-    //     $this->username = $username;
-    //     $this->password = $password;
-    //  }
+     public function __construct($name,$email,$username,$password,$role){
+       $this->name = $name;
+       $this->email = $email;
+       $this->username = $username;
+       $this->password = $password;
+       $this->role = $role;
+
+     } 
 
 public function setSession(){
     $_SESSION["role"] = 1;
@@ -25,7 +27,7 @@ public function setCookie()
 }
 
 public function getRole(){
-    return 1;
+    return $this->role;
 }
 
 public function getName(){
@@ -61,9 +63,9 @@ public function setUsername($username){
 public function setPassword($password){
     $this->password=$password;  
 }
-public function setRole($role){
-    return $this->$role;
-}
+// public function setRole($role){
+//     return $this->$role;
+// }
 
     
     public function insertAdmin(){
