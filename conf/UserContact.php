@@ -100,6 +100,30 @@ public function setMessage($message){
             return false;
         }
     }
+
+
+    public function existsC(){
+        try{
+        $stm=$this->conn->prepare("SELECT * from contact where name=?, email=?, phone=?, service=?, message=?");
+        $stm->execute([$this->name,$this->email,$this->phone,$this->service,$this->message]);
+        $user=$stm->fetchAll();
+        if(count($user)>0){
+            session_start();
+            $_SESSION['id']=$user[0]['id'];
+            $_SESSION['name']=$user[0]['name_c'];
+            $_SESSION['email']=$user[0]['email_c'];
+            $_SESSION['phone']=$user[0]['number_c'];
+            $_SESSION['service_c']=$user[0]['service_c'];
+            $_SESSION['message_c']=$user[0]['message_c'];
+            return true;
+
+        }else{
+            false;
+        }
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+}
 }
   
 ?>
