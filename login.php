@@ -14,18 +14,15 @@ if (isset($_POST['login'])) {
   $password=$info->setPassword($_POST['password']);
   $login=$info->login();
   $admin=$info->adminfunction();
-   if($login){
-      if($admin){
-        header('Location: conf/Dashboard.php');
-        exit();
-       }else{
-       header('Location: index.php');
-       exit();
-   }
-   }else{
-    echo '<script>alert("Invalid username or password");</script>';
-   }
-}
+    if($login){
+    
+       header('Location: conf/Dashboard.php');
+      
+      }else{
+        echo '<script>alert("Invalid username or password");</script>';
+      }
+  }
+
 
 
 ?>
