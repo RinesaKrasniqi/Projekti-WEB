@@ -91,7 +91,7 @@
   </div>
 </section>
 
-<?php include 'headfooter/footer.php';?>
+
 <?php include 'headfooter/footer.php';?>
 <script  type="text/javascript" src="script.js"></script>
 </body>
