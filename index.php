@@ -68,9 +68,17 @@
     <p class="paragraph-3-2">It's our privilege to provide hope and restore confidence in patients' smiles. With state-of-the-art tools, advanced <br> treatment methods, and a team of caring dental professionals, no smile is ever too far gone at My Dental Care. If <br> you're seeking restorative care, Dr. Yavari is here to provide comfortable, natural, and durable results.</p>
 </div>
 
+               <?php
+                require_once 'conf/userMapper.php';
+                $mapper =  new UserMapper();
+                $userList = $mapper->getAll();
+                foreach ($userList as $user) {
+                ?>
+                   <img  class="before-img" src="<?php echo $user['img'];?>">
+                <?php
+                }
+                ?>
 
-<img  class="before-img" src="Images/before.jpg">
-<img  class="after-img" src="Images/after.jpg">
 
 <div class="before-text">Before</div>
 <div class="after-text">After</div>

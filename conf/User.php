@@ -87,22 +87,7 @@ public function setRole($role){
             echo $query . "<br>" . $e->getMessage();
         }
     }
-
-    public function AdminOrUser(){
-        $connObj = new dbConnect();
-        $conn = $connObj->connectDB();
-        $user=new User();
-        $username = $this->getUsername();
-        $password= $this->getPassword();
-        if($user['username']=='admin' && $user['password']=='admin'){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-
-        
+       
         public function edit($id){
             $data = null;
             $query = "SELECT * FROM user WHERE id = '$id'";
@@ -123,7 +108,62 @@ public function setRole($role){
             }
         }
 
+
+        public function exists(){
+            try{
+            $stm=$this->conn->prepare("SELECT * from user where name=?, email=?, username=?, password=?");
+            $stm->execute([$this->name,$this->email,$this->username,$this->password]);
+            $user=$stm->fetchAll();
+            if(count($user)>0){
+                session_start();
+                $_SESSION['id']=$user[0]['id'];
+                $_SESSION['name']=$user[0]['name'];
+                $_SESSION['email']=$user[0]['email'];
+                $_SESSION['username']=$user[0]['username'];
+                $_SESSION['password']=$user[0]['password'];
+                return true;
     
+            }else{
+                false;
+            }
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    /*public function adminfunction(){
+        try{
+        $query="SELECT * FROM user WHERE EXISTS(SELECT * FROM user WHERE username='admin', password='admin')";
+        $stm=$this->conn->prepare($query);
+        $stm->execute([$this->username,$this->password]);
+        //$stm->execute();
+        $user=$stm->fetchAll();
+        if(count($user)>0){
+            session_start();
+            $_SESSION['id']=$user[0]['id'];
+            $_SESSION['username']=$user[0]['username'];
+            $_SESSION['password']=$user[0]['password'];
+
+            return true;
+
+        }else{
+            false;
+        }
+    }catch(Exception $e){
+        return $e->getMessage();
+    }
+}*/
+
+function record_exists() {
+    $query = "SELECT * FROM user WHERE username ='admin'";
+    $result =$this->conn->prepare($query);
+    if (count( $result)==1 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 }
 ?>

@@ -9,9 +9,12 @@
     $email=$regj->setEmail($_POST['email']);
     $username=$regj->setUsername($_POST['username']);
     $pass=$regj->setPassword($_POST['password']);
+    $exists=$regj->exists();
     //$role=$regj->setRole($_POST['role']);
     if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
       echo '<script>alert("All fields are required");</script>';
+    }else if ($exists){
+      echo '<script>alert("this user is already in database");</script>';
     }else{
     $regj->insertUser();
     echo '<script>alert("you are succesfully registred!!");</script>';

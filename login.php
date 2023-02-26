@@ -1,9 +1,9 @@
 <?php
 require_once 'conf/conn.php';
 require_once 'conf/loginVerify.php';
+require_once 'conf/User.php';
 
 //session_start();
-
 if (isset($_POST['login'])) {
   require_once 'conf/loginVerify.php';
   $info=new loginVerify();
@@ -13,10 +13,13 @@ if (isset($_POST['login'])) {
   $username=$info->setUsername($_POST['username']);
   $password=$info->setPassword($_POST['password']);
   $login=$info->login();
-  $admin=$info->adminfunction();
+  $admin=$perdorues->record_exists();
     if($login){
-    
-       header('Location: conf/Dashboard.php');
+      if($admin){
+         header('Location: conf/Dashboard.php');
+      }else{
+         header('Location: index.php');
+      }
       
       }else{
         echo '<script>alert("Invalid username or password");</script>';

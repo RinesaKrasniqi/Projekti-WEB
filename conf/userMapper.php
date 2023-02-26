@@ -60,6 +60,24 @@ class UserMapper extends dbConnect{
         return $result;
     }
 
+    public function getAll()
+    {
+        $this->query = "select * from home";
+        $statement = $this->conn->prepare($this->query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function getAllPlan()
+    {
+        $this->query = "select * from plan";
+        $statement = $this->conn->prepare($this->query);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function getAllUsersContact()
     {
         $this->query = "select * from contact";

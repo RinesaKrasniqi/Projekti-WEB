@@ -76,26 +76,6 @@ class loginVerify{
 
     }
 
-    public function adminfunction(){
-        try{
-        $stm=$this->conn->prepare("SELECT * FROM user WHERE username='admin' and password='admin'");
-        $stm->execute([$this->username,$this->password]);
-        $user=$stm->fetchAll();
-        if(count($user)>0){
-            session_start();
-            $_SESSION['id']=$user[0]['id'];
-            $_SESSION['username']=$user[0]['admin'];
-            $_SESSION['password']=$user[0]['admin'];
-            return true;
-
-        }else{
-            false;
-        }
-    }catch(Exception $e){
-        return $e->getMessage();
-    }
-}
-
 
 }
 
