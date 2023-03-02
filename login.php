@@ -15,12 +15,7 @@ if (isset($_POST['login'])) {
   $login=$info->login();
   $admin=$perdorues->adminfunction();
     if($login){
-      if($admin){
          header('Location: conf/Dashboard.php');
-      }else{
-         header('Location: index.php');
-      }
-      
       }else{
         echo '<script>alert("Invalid username or password");</script>';
       }

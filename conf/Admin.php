@@ -19,7 +19,6 @@ class Admin{
 
 public function setSession(){
     $_SESSION["role"] = 1;
-    $_SESSION['roleName'] = "Administrator";
 }
 public function setCookie()
 {

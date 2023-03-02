@@ -16,8 +16,7 @@
      }
 
 public function setSession(){
-        $_SESSION["role"] = "0";
-        $_SESSION['roleName'] = "SimpleUser";
+        $_SESSION["role"] = 0;
     }
 
  public function setCookie()
@@ -108,29 +107,6 @@ public function setRole($role){
             }
         }
 
-
-        public function exists(){
-            try{
-            $stm=$this->conn->prepare("SELECT * from user where name=?, email=?, username=?, password=?");
-            $stm->execute([$this->name,$this->email,$this->username,$this->password]);
-            $user=$stm->fetchAll();
-            if(count($user)>0){
-                session_start();
-                $_SESSION['id']=$user[0]['id'];
-                $_SESSION['name']=$user[0]['name'];
-                $_SESSION['email']=$user[0]['email'];
-                $_SESSION['username']=$user[0]['username'];
-                $_SESSION['password']=$user[0]['password'];
-                return true;
-    
-            }else{
-                false;
-            }
-        }catch(Exception $e){
-            return $e->getMessage();
-        }
-    }
-
     public function adminfunction(){
         try{
         $query="SELECT * FROM user WHERE EXISTS(SELECT * FROM user WHERE username='admin', password='admin')";
@@ -154,6 +130,21 @@ public function setRole($role){
     }
 }
 
+public function checkUser($email){
+    $query ="SELECT * FROM user WHERE email = ?";
+    $stm=$this->conn->prepare($query);
+    $stm->execute([$this->email]);
+    $result = $stm->rowCount();
+    if($result > 0){
+      $error = "Email is in use";
+      return true;
+    }else{
+        return false;
+    }
+
+}
+
+
 /*function record_exists() {
     $query = "SELECT * FROM user WHERE username ='admin'";
     $result =$this->conn->prepare($query);
@@ -163,6 +154,63 @@ public function setRole($role){
         return false;
     }
 }*/
+
+// $username = sanitize_user( $_POST['username'] );
+// if ( username_exists( $username ) ) {
+// 	echo "Username In Use!";
+// } else {
+// 	echo "Username Not In Use!";
+// }
+
+
+// function usernameCheck($username) {
+//     $stmt =$this->conn->prepare("SELECT username FROM user WHERE username = ':username'");
+//     $stmt->bindParam(':username', $username);
+//     $stmt->execute();
+
+//     if($stmt->rowCount() > 0){
+//         echo "exists!";
+//         return true;
+//     } else {
+//         echo "non existant";
+//         return false;
+//     }
+// }
+
+// function emailCheck($email) {
+//     $stmt =$this->conn->prepare("SELECT email FROM user WHERE email = ':email'");
+//     $stmt->bindParam(':email', $email);
+//     $stmt->execute();
+
+//     if($stmt->rowCount() > 0){
+//         echo "exists email!";
+//         return true;
+//     } else {
+//         echo "non existant email";
+//         return false;
+//     }
+// }
+// public function exists(){
+//     try{
+//     $stm=$this->conn->prepare("SELECT * from user where name=?, email=?, username=?, password=?");
+//     $stm->execute([$this->name,$this->email,$this->username,$this->password]);
+//     $user=$stm->fetchAll();
+//     if(count($user)>0){
+//         session_start();
+//         $_SESSION['id']=$user[0]['id'];
+//         $_SESSION['name']=$user[0]['name'];
+//         $_SESSION['email']=$user[0]['email'];
+//         $_SESSION['username']=$user[0]['username'];
+//         $_SESSION['password']=$user[0]['password'];
+//         return true;
+
+//     }else{
+//         false;
+//     }
+// }catch(Exception $e){
+//     return $e->getMessage();
+// }}
+
 
 
 }

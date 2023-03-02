@@ -1,27 +1,32 @@
 <?php 
   require_once 'conf/User.php';
   require_once 'conf/Admin.php';
+  require_once 'conf/conn.php';
 
 
   if(isset($_POST["submit"])){
     $regj= new User();
     $name=$regj->setEmri($_POST['nameInput']);
     $email=$regj->setEmail($_POST['email']);
+    $email1=$_POST['email'];
     $username=$regj->setUsername($_POST['username']);
     $pass=$regj->setPassword($_POST['password']);
-    $exists=$regj->exists();
     //$role=$regj->setRole($_POST['role']);
+    if(($_POST['nameInput']) || ($_POST['email']) || ($_POST['username']) || ($_POST['password'])){
+      $variabel=$regj->checkUser($email);
+      if($variabel){
+        echo '<script>alert("this user already exists !");</script>';
+      }else {
+        $regj->insertUser();
+       echo '<script>alert("you are succesfully registred!!");</script>';
+      }
+
+    }
     if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
-      echo '<script>alert("All fields are required");</script>';
-    }else if ($exists){
-      echo '<script>alert("this user is already in database");</script>';
-    }else{
-    $regj->insertUser();
-    echo '<script>alert("you are succesfully registred!!");</script>';
-    header('Location:index.php');
-    exit();
-  }
+      echo '<script>alert("All fields are required !");</script>';
+     }
 }
+
 
 ?>
 
@@ -43,7 +48,7 @@
 
    <div class="container-1">
      <div class="login-form">
-        <form class="form" action="" method="post" autocomplete="off">
+        <form class="form" action="" method="post">
             <p class="field-name">Name</p>
             <input type="text" class="form-control" id="nameInput" name="nameInput">
             <p class="field-name">Email</p>
@@ -61,6 +66,6 @@
   
 <?php include 'headfooter/footer.php';?>
 
-<script  type="text/javascript" src="script.js"></script>
+<script  type="text/javascript" src="script.php"></script>
 </body>
 </html>
