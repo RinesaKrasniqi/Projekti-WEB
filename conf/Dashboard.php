@@ -35,7 +35,7 @@ include_once './userMapper.php';
                 <?php
                 $mapper =  new UserMapper();
                 $userList = $mapper->getAllUsers();
-                foreach ($userList as $user) {
+                foreach ($userList as $user):
                 ?>
                     <tr>
                         <td><?php echo $user['name']; ?></td>
@@ -45,7 +45,7 @@ include_once './userMapper.php';
                         <td><a href=<?php echo "../editdelete/delete.php?id=" . $user['id'];?>>Delete</td>
                     </tr>
                 <?php
-                }
+                endforeach;
                 ?>
             </tbody>
         </table>
@@ -72,7 +72,7 @@ include_once './userMapper.php';
                 <?php
                 $mapper =  new UserMapper();
                 $userList = $mapper->getAllUsersContact();
-                foreach ($userList as $user) {
+                foreach ($userList as $user):
                 ?>
                     <tr>
                         <td><?php echo $user['name']; ?></td>
@@ -84,7 +84,7 @@ include_once './userMapper.php';
                         <td><a href=<?php echo "../editdelete/deleteC.php?id=" . $user['id']; ?>>Delete</td>
                     </tr>
                 <?php
-                }
+                endforeach;
                 ?>
             </tbody>
         </table>

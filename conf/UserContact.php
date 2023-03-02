@@ -110,9 +110,9 @@ public function setMessage($message){
         if(count($user)>0){
             session_start();
             $_SESSION['id']=$user[0]['id'];
-            $_SESSION['name']=$user[0]['name_c'];
-            $_SESSION['email']=$user[0]['email_c'];
-            $_SESSION['phone']=$user[0]['number_c'];
+            $_SESSION['name']=$user[0]['name'];
+            $_SESSION['email']=$user[0]['email'];
+            $_SESSION['phone']=$user[0]['number'];
             $_SESSION['service_c']=$user[0]['service_c'];
             $_SESSION['message_c']=$user[0]['message_c'];
             return true;

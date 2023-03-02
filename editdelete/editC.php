@@ -1,6 +1,5 @@
 <?php
-include_once '../conf/userMapper.php'; 
-  
+include_once '../conf/userMapper.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +24,12 @@ include_once '../conf/userMapper.php';
               $row = $model->editC($id);
  
               if (isset($_POST['submit'])) {
-                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['service']) && isset($_POST['message'])) {
+                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['number']) && isset($_POST['service']) && isset($_POST['message'])) {
                      
                     $data['id'] = $id;
                     $data['name'] = $_POST['name'];
                     $data['email'] = $_POST['email'];
-                    $data['phone'] = $_POST['number'];
+                    $data['number'] = $_POST['number'];
                     $data['service'] = $_POST['service'];
                     $data['message'] = $_POST['message'];
  
@@ -46,23 +45,23 @@ include_once '../conf/userMapper.php';
  
                   }else{
                     echo "<script>alert('empty');</script>";
-                    header("Location: editC.php?id=$id");
+                    header("Location: edit.php?id=$id");
                   }
                 }
           ?>
-     <form class="contact-form" action="" method="post">
-            <p class="field-name">Name:</p>
-            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name">
-            <p class="field-name">Email Address:</p>
-            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email">
+        <form class="form" action="" method="post">
+            <p class="field-name">Name</p>
+            <input type="text" class="form-control" id="nameInput" name="name" >
+            <p class="field-name">Email</p>
+            <input type="email" class="form-control" id="email" name="email">
             <p class="field-name">Phone Number:</p>
-            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number">
-            <p class="field-name">Write your preffered service:</p>
-            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service">
-            <p class="field-name">Message:</p>
-            <textarea id="Message"  placeholder="Your message" class="textarea" name="message"></textarea>
+            <input type="tel" class="form-field" placeholder="Enter your phone number" name="number">
+            <p class="field-name">Service</p>
+            <input type="text" class="form-control" id="service" name="service"><br>
+            <p class="field-name">Message</p>
+            <input type="text" class="form-control" id="message" name="message"><br>
 
-           <button name="submit" type="submit" id="btn-login" class="submit" >Update</button>
+            <button name="submit" type="submit" value="Update" id="btn-login" class="submit" >Update</button>
         </form>
     </div>
    </div>

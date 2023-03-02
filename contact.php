@@ -2,16 +2,14 @@
 require_once 'conf/UserContact.php';
   if(isset($_POST["submit"])){
     $regj= new UserContact();
-    $name=$regj->setName($_POST['name_c']);
-    $email=$regj->setEmail($_POST['email_c']);
-    $number=$regj->setPhone($_POST['number_c']);
-    $service=$regj->setService($_POST['service_c']);
-    $message=$regj->setMessage($_POST['message_c']);
+    $name=$regj->setName($_POST['name']);
+    $email=$regj->setEmail($_POST['email']);
+    $number=$regj->setPhone($_POST['number']);
+    $service=$regj->setService($_POST['service']);
+    $message=$regj->setMessage($_POST['message']);
     $exists=$regj->existsC();
-    if(empty($_POST['name_c']) || empty($_POST['email_c']) || empty($_POST['number_c']) || empty($_POST['service_c'])|| empty($_POST['message_c']) ){
+    if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service'])|| empty($_POST['message']) ){
       echo '<script>alert("All fields are required");</script>';
-    }else if ($exists){
-      echo '<script>alert("You have already contacted us!");</script>';
     }else{
 
     $regj->insertUserContact();
@@ -47,17 +45,15 @@ require_once 'conf/UserContact.php';
      <div class="card-email-form">
          <form class="contact-form" method='POST'>
             <p class="field-name">Name:</p>
-            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name_c">
+            <input type="text" class="form-field"  placeholder="Enter your name" id="Name-1" name="name">
             <p class="field-name">Email Address:</p>
-            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email_c">
+            <input type="email" class="form-field" placeholder="Enter your email" id="Email-1" name="email">
             <p class="field-name">Phone Number:</p>
-            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number_c">
-            <p class="field-name">Preferred Appointment Date:</p>
-            <input type="date" class="form-field" placeholder="Choose your date" id="datepicker" name="date_c">
+            <input type="tel" class="form-field" placeholder="Enter your phone number" id="Phone-Number-1" name="number">
             <p class="field-name">Write your preffered service:</p>
-            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service_c">
+            <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service">
             <p class="field-name">Message:</p>
-            <textarea id="Message"  placeholder="Your message" class="textarea" name="message_c"></textarea>
+            <textarea id="Message"  placeholder="Your message" class="textarea" name="message"></textarea>
             <input type="submit" class="submit" id="submit" name="submit" onclick="validoContact()">
         </form>
      </div>
