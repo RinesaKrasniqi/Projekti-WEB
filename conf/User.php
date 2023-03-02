@@ -149,6 +149,8 @@ public function checkUser($email){
 
 
 
+
+
 /*function record_exists() {
     $query = "SELECT * FROM user WHERE username ='admin'";
     $result =$this->conn->prepare($query);
