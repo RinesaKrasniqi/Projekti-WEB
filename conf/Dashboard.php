@@ -1,12 +1,5 @@
 <?php
 include_once './userMapper.php';
-//if (isset($_SESSION["role"]) && $_SESSION['role'] == '1') {
- //   $mapper =  new UserMapper();
-   // $userList = $mapper->getAllUsers();
-//} 
-//else {
-    //header("Location: ../index.php");
-//}
 ?>
 <!DOCTYPE html>
 <html lang="en">

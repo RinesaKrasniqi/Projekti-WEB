@@ -16,9 +16,6 @@ class loginVerify{
         $this->password=$password;
         $connObj = new dbConnect();
         $this->conn = $connObj->connectDB();
-    //     $this->conn=new PDO("mysql:host='localhost';dbname='dental_db'",'root',"");
-    //    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) . "<br/>";
-    //    $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC) . "<br/>";
     }
 
     public function getID(){
@@ -73,6 +70,29 @@ class loginVerify{
     }catch(Exception $e){
         return $e->getMessage();
     }
+
+    }
+
+    public function  userandpassCorrect($username,$password){
+        $mapper=new User();
+        $user=$mapper->getUserByUsername($username);
+        if($user==null || count($user)==0){
+            return false;
+        }else if($password==$user['password']){
+            if($user['role']==1){
+                $obj=new Admin($user['name'], $user['email'],$user['username'], $user['password']);
+                $obj->setSession();
+                header("Location: conf.Dashboard.php");
+                return true;
+            }else{
+                $obj=new User($user['name'], $user['email'],$user['username'], $user['password']);
+                $obj->setSession();
+                header("Location: index.php");
+                return false;
+            }
+        }else{
+            return false;
+        }
 
     }
 

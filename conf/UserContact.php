@@ -73,7 +73,6 @@ public function setMessage($message){
             $phone = $this->getPhone();
             $service= $this->getService();
             $message= $this->getMessage();
-            //$role= $this->getRole();
             $query = "INSERT INTO contact(name,email,phone,service,message) VALUES ('$name','$email','$phone','$service','$message')";
             $conn->exec($query);
         }catch(PDOException $e) {
@@ -115,29 +114,6 @@ public function checkContact($email){
     }
 
 }
-
-//public function existsC(){
-    //         try{
-    //         $stm=$this->conn->prepare("SELECT * from contact where name=?, email=?, phone=?, service=?, message=?");
-    //         $stm->execute([$this->name,$this->email,$this->phone,$this->service,$this->message]);
-    //         $user=$stm->fetchAll();
-    //         if(count($user)>0){
-    //             session_start();
-    //             $_SESSION['id']=$user[0]['id'];
-    //             $_SESSION['name']=$user[0]['name'];
-    //             $_SESSION['email']=$user[0]['email'];
-    //             $_SESSION['phone']=$user[0]['number'];
-    //             $_SESSION['service_c']=$user[0]['service_c'];
-    //             $_SESSION['message_c']=$user[0]['message_c'];
-    //             return true;
-    
-    //         }else{
-    //             false;
-    //         }
-    //     }catch(Exception $e){
-    //         return $e->getMessage();
-    //     }
-    // }
 
 }
   

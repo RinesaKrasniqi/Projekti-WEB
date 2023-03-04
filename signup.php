@@ -11,11 +11,14 @@
     $email1=$_POST['email'];
     $username=$regj->setUsername($_POST['username']);
     $pass=$regj->setPassword($_POST['password']);
-    //$role=$regj->setRole($_POST['role']);
     if(($_POST['nameInput']) || ($_POST['email']) || ($_POST['username']) || ($_POST['password'])){
       $variabel=$regj->checkUser($email);
       if($variabel){
         echo '<script>alert("this user already exists !");</script>';
+      }
+      
+      if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
+        echo '<script>alert("All fields are required !");</script>';
       }else {
         $regj->insertUser();
        echo '<script>alert("you are succesfully registred!!");</script>';
@@ -27,9 +30,7 @@
      }
 }
 
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +58,6 @@
             <input type="text" class="form-control" id="username" name="username">
             <p class="field-name">Password</p>
             <input id="password" type="password" class="form-control" name="password">
-
             <button name="submit" type="submit" id="btn-login" class="submit" onclick="validoSignUp()">Sign Up</button>
         </form>
     </div>

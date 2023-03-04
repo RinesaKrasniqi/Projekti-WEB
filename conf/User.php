@@ -8,15 +8,18 @@
     public $password;
     public $role=0;
     public $conn;
-
-   
-     public function __construct($conn=""){
-     $connObj = new dbConnect();
-     $this->conn = $connObj->connectDB();
+  
+     public function __construct($name="",$email="",$username="",$password="",$conn=""){
+       $this->name = $name;
+       $this->email = $email;
+       $this->username = $username;
+       $this->password = $password;
+       $connObj = new dbConnect();
+       $this->conn = $connObj->connectDB();
      }
 
 public function setSession(){
-        $_SESSION["role"] = 0;
+        $_SESSION["role"] == 0;
     }
 
  public function setCookie()
@@ -107,28 +110,6 @@ public function setRole($role){
             }
         }
 
-    public function adminfunction(){
-        try{
-        $query="SELECT * FROM user WHERE EXISTS(SELECT * FROM user WHERE username='admin', password='admin')";
-        $stm=$this->conn->prepare($query);
-        $stm->execute([$this->username,$this->password]);
-        //$stm->execute();
-        $user=$stm->fetchAll();
-        if(count($user)>0){
-            session_start();
-            $_SESSION['id']=$user[0]['id'];
-            $_SESSION['username']=$user[0]['username'];
-            $_SESSION['password']=$user[0]['password'];
-
-            return true;
-
-        }else{
-            false;
-        }
-    }catch(Exception $e){
-        return $e->getMessage();
-    }
-}
 
 public function checkUser($email){
     $query ="SELECT * FROM user WHERE email = ?";
@@ -144,79 +125,15 @@ public function checkUser($email){
 
 }
 
-
-
-
-
-
-
-
-/*function record_exists() {
-    $query = "SELECT * FROM user WHERE username ='admin'";
-    $result =$this->conn->prepare($query);
-    if (count( $result)==1 ) {
-        return true;
-    } else {
-        return false;
+public function getUserByUsername($username)
+    {
+        $this->query = "select * from user where username=:username";
+        $statement = $this->conn->prepare($this->query);
+        $statement->bindParam(":username", $username);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
     }
-}*/
-
-// $username = sanitize_user( $_POST['username'] );
-// if ( username_exists( $username ) ) {
-// 	echo "Username In Use!";
-// } else {
-// 	echo "Username Not In Use!";
-// }
-
-
-// function usernameCheck($username) {
-//     $stmt =$this->conn->prepare("SELECT username FROM user WHERE username = ':username'");
-//     $stmt->bindParam(':username', $username);
-//     $stmt->execute();
-
-//     if($stmt->rowCount() > 0){
-//         echo "exists!";
-//         return true;
-//     } else {
-//         echo "non existant";
-//         return false;
-//     }
-// }
-
-// function emailCheck($email) {
-//     $stmt =$this->conn->prepare("SELECT email FROM user WHERE email = ':email'");
-//     $stmt->bindParam(':email', $email);
-//     $stmt->execute();
-
-//     if($stmt->rowCount() > 0){
-//         echo "exists email!";
-//         return true;
-//     } else {
-//         echo "non existant email";
-//         return false;
-//     }
-// }
-// public function exists(){
-//     try{
-//     $stm=$this->conn->prepare("SELECT * from user where name=?, email=?, username=?, password=?");
-//     $stm->execute([$this->name,$this->email,$this->username,$this->password]);
-//     $user=$stm->fetchAll();
-//     if(count($user)>0){
-//         session_start();
-//         $_SESSION['id']=$user[0]['id'];
-//         $_SESSION['name']=$user[0]['name'];
-//         $_SESSION['email']=$user[0]['email'];
-//         $_SESSION['username']=$user[0]['username'];
-//         $_SESSION['password']=$user[0]['password'];
-//         return true;
-
-//     }else{
-//         false;
-//     }
-// }catch(Exception $e){
-//     return $e->getMessage();
-// }}
-
 
 
 }

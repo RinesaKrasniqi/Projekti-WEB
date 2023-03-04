@@ -15,42 +15,6 @@ class UserMapper extends dbConnect{
         $this->conn = $connObj->connectDB();
     }
 
-    //edit
-   /* public function getUserByID($userId)
-    {
-        $this->query = "SELECT * FROM user where id=:id";
-        $statement = $this->conn->prepare($this->query);
-        $statement->bindParam(":id", $id);
-        $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-
-       public function update(){
-          try{
-            $sql ="UPDATE user SET name=?, email=?,username=? where id=?";
-            $stm=$this->conn->prepare($sql);
-            $stm->execute([$this->name, $this->email,$this->username]);
-            echo "<script>alert('te dhenat jane Perditsuar me sukses');</script>";
-            }
-            catch(Exception $e){
-            return $e->getMessage();
-            }
-       }
-*/
-
-
-    public function getUserByUsername($username)
-    {
-        $this->query = "select * from user where username=:username";
-        $statement = $this->conn->prepare($this->query);
-        $statement->bindParam(":username", $username);
-        $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
     public function getAllUsers()
     {
         $this->query = "select * from user";
@@ -112,3 +76,4 @@ class UserMapper extends dbConnect{
 
     
 }
+?>

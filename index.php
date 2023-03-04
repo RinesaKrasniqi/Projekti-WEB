@@ -72,11 +72,11 @@
                 require_once 'conf/userMapper.php';
                 $mapper =  new UserMapper();
                 $userList = $mapper->getAll();
-                foreach ($userList as $user) {
+                foreach ($userList as $user):
                 ?>
                    <img  class="before-img" src="<?php echo $user['img'];?>">
                 <?php
-                }
+                endforeach;
                 ?>
 
 

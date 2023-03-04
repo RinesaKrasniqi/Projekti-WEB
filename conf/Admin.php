@@ -7,18 +7,19 @@ class Admin{
     public $username;
     public $password;
     public $role=1;
+    public $conn;
    
-     public function __construct($name,$email,$username,$password,$role){
+     public function __construct($name,$email,$username,$password,$conn=""){
        $this->name = $name;
        $this->email = $email;
        $this->username = $username;
        $this->password = $password;
-       $this->role = $role;
-
+       $connObj = new dbConnect();
+       $this->conn = $connObj->connectDB();
      } 
 
 public function setSession(){
-    $_SESSION["role"] = 1;
+    $_SESSION["role"] == 1;
 }
 public function setCookie()
 {
@@ -44,9 +45,6 @@ public function getPassword(){
     return $this->password;
 }
 
-
-// Setters
-
 public function setName($name){
     $this->name=$name;
 }
@@ -62,11 +60,7 @@ public function setUsername($username){
 public function setPassword($password){
     $this->password=$password;  
 }
-// public function setRole($role){
-//     return $this->$role;
-// }
 
-    
     public function insertAdmin(){
         try {
             $connObj = new dbConnect();

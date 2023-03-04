@@ -27,14 +27,16 @@ function valido(){
     
 }
 
+
+
 function validoSignUp(){
-    var emri=document.getElementById("name").value;
+    var emri=document.getElementById('nameInput').value;
     var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
-    var email=document.getElementById("email").value;
+    var email=document.getElementById('email').value;
     var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
-    var user=document.getElementById("usernameInput").value;
+    var user=document.getElementById('username').value;
     var userregex=/^[A-Z][a-z0-9]{3,15}$/
-    var password=document.getElementById("passwordInput").value;
+    var password=document.getElementById('password').value;
     var passregex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/
 
     if(emriregex.test(emri)){
@@ -61,15 +63,16 @@ function validoSignUp(){
 }
 
 function validoContact(){
-  var emri=document.getElementById("Name-1").value;
+  var emri=document.getElementById('Name-1').value;
   var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
-  var email=document.getElementById("Email-1").value;
+  var email=document.getElementById('Email-1').value;
   var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
-  var phone=document.getElementById("Phone-Number-1").value;
+  var phone=document.getElementById('Phone-Number-1').value;
   var phoneregex=/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/
-//   var date=document.getElementById("datepicker").value;
-//   var dateregex=/^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
-  
+  var service=document.getElementById('Service-1').value;
+  var serviceregex=/^\s*$/
+  var message=document.getElementById('Message').value;
+  var messageregex=/^\s*$/
 
   if(emriregex.test(emri)){
      
@@ -86,12 +89,16 @@ function validoContact(){
   }else{
      alert("phone number should be in this format: 000-000-000!");
   }
-  
-//   if(dateregex.test(date)){
+  if(serviceregex.test(service)){
      
-//   }else{
-//      alert("There are no free appointments for that day, try another one!");
-//   }
+  }else{
+     alert("Please enter a service!");
+  }
+  if(messageregex.test(message)){
+     
+  }else{
+     alert("Please enter a message!");
+  }
   
   
   

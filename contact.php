@@ -11,11 +11,13 @@ require_once 'conf/UserContact.php';
       $variabel=$regj->checkContact($email);
       if($variabel){
         echo '<script>alert("You already contacted us!");</script>';
-      }else {
+      }
+      if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) || empty($_POST['message']) ){
+        echo '<script>alert("All fields are required !");</script>';
+       }else {
         $regj->insertContact();
        echo '<script>alert("You have contacted us succesfully!!");</script>';
       }
-
     }
     if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) || empty($_POST['message']) ){
       echo '<script>alert("All fields are required !");</script>';
@@ -59,7 +61,7 @@ require_once 'conf/UserContact.php';
             <input type="text" class="form-field" placeholder="Enter service:" id="Service-1" name="service">
             <p class="field-name">Message:</p>
             <textarea id="Message"  placeholder="Your message" class="textarea" name="message"></textarea>
-            <input type="submit" class="submit" id="submit" name="submit" onclick="validoContact()">
+            <button type="submit" id="submit" name="submit" class="submit" onclick="validoContact()">Submit</button>
         </form>
      </div>
   </div>

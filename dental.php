@@ -17,13 +17,13 @@
                 require_once 'conf/userMapper.php';
                 $mapper =  new UserMapper();
                 $userList = $mapper->getAllPlan();
-                foreach ($userList as $user) {
+                foreach ($userList as $user):
                 ?>
                    <h3 class="h3"><?php echo $user["plan_name"]?></h3>
                    <p class="first-p" ><?php echo $user["plans"]?></p>
     
                 <?php
-                }
+                endforeach;
                 ?>
    
          <div class="button-box" >

@@ -2,30 +2,26 @@
 require_once 'conf/conn.php';
 require_once 'conf/loginVerify.php';
 require_once 'conf/User.php';
-require_once 'conf/validim.php';
 
-//session_start();
 if (isset($_POST['login'])) {
   require_once 'conf/loginVerify.php';
-
   $info=new loginVerify();
-  $perdorues=new User();
-
-  $emriUserit=$info->getUsername();
-  $passUserit=$info->getPassword();
-
   $username=$info->setUsername($_POST['username']);
   $password=$info->setPassword($_POST['password']);
-
+  $username1=$_POST['username'];
+  $password1=$_POST['password'];
   $login=$info->login();
-  //$admin=$perdorues->adminfunction();
-
+  $user=new loginVerify();
+  $verifikim=$user->userandpassCorrect($username1,$password1);
     if($login){
-         $rez = new LoginLogic($username,$password);
-         $hap =$rez->verifyData();
+      if($verifikim){
+       header('Location: conf/Dashboard.php');
       }else{
-        echo '<script>alert("Invalid username or password");</script>';
+         header('Location: index.php');
       }
+    }else{
+      echo 'diqka keq o tu ndodh';
+    }
   }
 
 ?>
@@ -51,8 +47,7 @@ if (isset($_POST['login'])) {
             <input type="text" class="form-control" id="usernameInput" name="username">
             <p class="field-name">Password</p>
             <input id="passwordInput" type="password" class="form-control"  name="password">
-
-            <button type="submit" id="btn-login" name="login" class="submit" onclick="valido()">Submit</button>
+            <button type="submit" id="btn-login" name="login" class="submit" >Submit</button>
         </form>
     </div>
    </div>
