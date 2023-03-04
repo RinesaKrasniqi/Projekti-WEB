@@ -67,8 +67,8 @@ function validoContact(){
   var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
   var phone=document.getElementById("Phone-Number-1").value;
   var phoneregex=/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/
-  var date=document.getElementById("datepicker").value;
-  var dateregex=/^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
+//   var date=document.getElementById("datepicker").value;
+//   var dateregex=/^((?:19|20)[0-9][0-9])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/
   
 
   if(emriregex.test(emri)){
@@ -87,11 +87,11 @@ function validoContact(){
      alert("phone number should be in this format: 000-000-000!");
   }
   
-  if(dateregex.test(date)){
+//   if(dateregex.test(date)){
      
-  }else{
-     alert("There are no free appointments for that day, try another one!");
-  }
+//   }else{
+//      alert("There are no free appointments for that day, try another one!");
+//   }
   
   
   

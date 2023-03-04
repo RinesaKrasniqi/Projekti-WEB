@@ -66,6 +66,6 @@ require_once 'conf/UserContact.php';
 
   <?php include 'headfooter/footer.php';?>
 
-<script  type="text/javascript" src="script.php"></script>
+<script  type="text/javascript" src="script.js"></script>
 </body>
 </html>
