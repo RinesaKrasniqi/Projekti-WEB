@@ -2,26 +2,31 @@
 require_once 'conf/conn.php';
 require_once 'conf/loginVerify.php';
 require_once 'conf/User.php';
+require_once 'conf/validim.php';
 
 //session_start();
 if (isset($_POST['login'])) {
   require_once 'conf/loginVerify.php';
+
   $info=new loginVerify();
   $perdorues=new User();
+
   $emriUserit=$info->getUsername();
   $passUserit=$info->getPassword();
+
   $username=$info->setUsername($_POST['username']);
   $password=$info->setPassword($_POST['password']);
+
   $login=$info->login();
-  $admin=$perdorues->adminfunction();
+  //$admin=$perdorues->adminfunction();
+
     if($login){
-         header('Location: conf/Dashboard.php');
+         $rez = new LoginLogic($username,$password);
+         $hap =$rez->verifyData();
       }else{
         echo '<script>alert("Invalid username or password");</script>';
       }
   }
-
-
 
 ?>
 
