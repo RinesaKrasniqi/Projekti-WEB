@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
          header('Location: index.php');
       }
     }else{
-      echo 'diqka keq o tu ndodh';
+      echo '<script>alert("Invalid login!");</script>';
     }
   }
 

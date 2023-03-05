@@ -82,7 +82,7 @@ class loginVerify{
             if($user['role']==1){
                 $obj=new Admin($user['name'], $user['email'],$user['username'], $user['password']);
                 $obj->setSession();
-                header("Location: conf.Dashboard.php");
+                header("Location: conf/Dashboard.php");
                 return true;
             }else{
                 $obj=new User($user['name'], $user['email'],$user['username'], $user['password']);
@@ -95,7 +95,6 @@ class loginVerify{
         }
 
     }
-
 
 }
 

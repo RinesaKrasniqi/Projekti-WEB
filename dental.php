@@ -27,7 +27,7 @@
                 ?>
    
          <div class="button-box" >
-           <a href="contact.html" class="button">SIGN UP</a>
+           <a href="signup.php" class="button">SIGN UP</a>
          </div>
 
 

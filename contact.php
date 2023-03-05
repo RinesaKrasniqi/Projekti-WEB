@@ -12,14 +12,14 @@ require_once 'conf/UserContact.php';
       if($variabel){
         echo '<script>alert("You already contacted us!");</script>';
       }
-      if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) || empty($_POST['message']) ){
+      if(empty($_POST['name']) && empty($_POST['email']) && empty($_POST['number'])&& empty($_POST['service']) ){
         echo '<script>alert("All fields are required !");</script>';
        }else {
         $regj->insertContact();
        echo '<script>alert("You have contacted us succesfully!!");</script>';
       }
     }
-    if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) || empty($_POST['message']) ){
+    if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) ){
       echo '<script>alert("All fields are required !");</script>';
      }
 }

@@ -66,13 +66,11 @@ function validoContact(){
   var emri=document.getElementById('Name-1').value;
   var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
   var email=document.getElementById('Email-1').value;
-  var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
+  var emailregex=/^[a-z]+@([a-z]+\.)+(edu|com)$/
   var phone=document.getElementById('Phone-Number-1').value;
   var phoneregex=/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/
   var service=document.getElementById('Service-1').value;
-  var serviceregex=/^\s*$/
-  var message=document.getElementById('Message').value;
-  var messageregex=/^\s*$/
+  var serviceregex=/'^.*\S.*$'/
 
   if(emriregex.test(emri)){
      
@@ -94,12 +92,4 @@ function validoContact(){
   }else{
      alert("Please enter a service!");
   }
-  if(messageregex.test(message)){
-     
-  }else{
-     alert("Please enter a message!");
-  }
-  
-  
-  
 }
