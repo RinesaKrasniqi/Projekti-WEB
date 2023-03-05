@@ -11,24 +11,21 @@
     $email1=$_POST['email'];
     $username=$regj->setUsername($_POST['username']);
     $pass=$regj->setPassword($_POST['password']);
-    if(($_POST['nameInput']) || ($_POST['email']) || ($_POST['username']) || ($_POST['password'])){
+
+    if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
+      echo '<script>alert("All fields are required !");</script>';
+    }else if(($_POST['nameInput']) || ($_POST['email']) || ($_POST['username']) || ($_POST['password'])){
       $variabel=$regj->checkUser($email);
       if($variabel){
         echo '<script>alert("this user already exists !");</script>';
-      }
-      
-      if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
-        echo '<script>alert("All fields are required !");</script>';
       }else {
         $regj->insertUser();
        echo '<script>alert("you are succesfully registred!!");</script>';
       }
-
+    }else {
+      echo '<script>alert("Fuck u <3");</script>';
     }
-    if(empty($_POST['nameInput']) || empty($_POST['email']) || empty($_POST['username']) || empty($_POST['password']) ){
-      echo '<script>alert("All fields are required !");</script>';
-     }
-}
+  }
 
 ?>
 
