@@ -7,22 +7,15 @@ require_once 'conf/UserContact.php';
     $number=$regj->setPhone($_POST['number']);
     $service=$regj->setService($_POST['service']);
     $message=$regj->setMessage($_POST['message']);
-    if(($_POST['name']) || ($_POST['email']) || ($_POST['number']) || ($_POST['service']) || ($_POST['message'])){
-      $variabel=$regj->checkContact($email);
-      if($variabel){
-        echo '<script>alert("You already contacted us!");</script>';
-      }
-      if(empty($_POST['name']) && empty($_POST['email']) && empty($_POST['number'])&& empty($_POST['service']) ){
-        echo '<script>alert("All fields are required !");</script>';
-       }else {
-        $regj->insertContact();
-       echo '<script>alert("You have contacted us succesfully!!");</script>';
-      }
-    }
+    
     if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['service']) ){
       echo '<script>alert("All fields are required !");</script>';
-     }
-}
+      }else {
+        $regj->insertContact();
+       echo '<script>alert("you have succesfully contacted us!!");</script>';
+      }
+  }
+
 
 
 ?>

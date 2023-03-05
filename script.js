@@ -8,26 +8,6 @@ setInterval(function(){
     }
 },2000);
 
-function valido(){
-    var username=document.getElementById('usernameInput').value;
-    var usernameRegex=/^[A-Za-z]{5,}[0-9]{1,}$/
-    var password=document.getElementById('passwordInput').value;
-    var passwordRegex=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/
-
-    if(usernameRegex.test(username)){
-        
-    }else{
-        alert("This username doesn't exist, check again!");
-    }
-    if(passwordRegex.test(password)){
-        
-    }else{
-        alert("Password doesn't exit, try again!");
-    }
-    
-}
-
-
 
 function validoSignUp(){
     var emri=document.getElementById('nameInput').value;
@@ -66,11 +46,11 @@ function validoContact(){
   var emri=document.getElementById('Name-1').value;
   var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
   var email=document.getElementById('Email-1').value;
-  var emailregex=/^[a-z]+@([a-z]+\.)+(edu|com)$/
+  var emailregex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   var phone=document.getElementById('Phone-Number-1').value;
-  var phoneregex=/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/
+  var phoneregex=/^[0-9]{9}$/
   var service=document.getElementById('Service-1').value;
-  var serviceregex=/'^.*\S.*$'/
+  var serviceregex=/^.+$/
 
   if(emriregex.test(emri)){
      
@@ -80,12 +60,12 @@ function validoContact(){
   if(emailregex.test(email)){
      
   }else{
-     alert("email should be in this format: name.surname@---.com/edu");
+     alert("email should be in this format: name@---.com/edu");
   }
   if(phoneregex.test(phone)){
      
   }else{
-     alert("phone number should be in this format: 000-000-000!");
+     alert("phone number should have at least 9 numbers in it!");
   }
   if(serviceregex.test(service)){
      
