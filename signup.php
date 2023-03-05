@@ -23,7 +23,7 @@
        echo '<script>alert("you are succesfully registred!!");</script>';
       }
     }else {
-      echo '<script>alert("Fuck u <3");</script>';
+      echo '<script>alert("Invalid signup");</script>';
     }
   }
 
