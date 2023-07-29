@@ -60,24 +60,6 @@ public function setUsername($username){
 public function setPassword($password){
     $this->password=$password;  
 }
-
-    public function insertAdmin(){
-        try {
-            $connObj = new dbConnect();
-            $conn = $connObj->connectDB();
-
-            $name = $this->getName();
-            $email=  $this->getEmail();
-            $username = $this->getUsername();
-            $password= $this->getPassword();
-            //$role= $this->getRole();
-            $query = "INSERT INTO user(name,email,username,password,role) VALUES ('$name','$email','$username','$password','1')";
-            
-            $conn->exec($query);
-        }catch(PDOException $e) {
-            echo $query . "<br>" . $e->getMessage();
-        }
-    }
 }
   
 ?>

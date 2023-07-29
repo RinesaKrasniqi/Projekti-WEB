@@ -11,6 +11,7 @@ if (isset($_POST['login'])) {
   $username1=$_POST['username'];
   $password1=$_POST['password'];
   $login=$info->login();
+  
   $user=new loginVerify();
   $verifikim=$user->userandpassCorrect($username1,$password1);
     if($login){

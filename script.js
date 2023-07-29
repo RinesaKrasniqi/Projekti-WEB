@@ -11,7 +11,7 @@ setInterval(function(){
 
 function validoSignUp(){
     var emri=document.getElementById('nameInput').value;
-    var emriregex=/^[A-Z][a-z]{3,15}\s[A-Z][a-z]{3,15}$/
+    var emriregex=/^[A-Za-z]{3,15}$/
     var email=document.getElementById('email').value;
     var emailregex=/[a-z]+@([a-z]+\.)+(edu|com)/
     var user=document.getElementById('username').value;
@@ -49,9 +49,7 @@ function validoContact(){
   var emailregex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   var phone=document.getElementById('Phone-Number-1').value;
   var phoneregex=/^[0-9]{9}$/
-  var service=document.getElementById('Service-1').value;
-  var serviceregex=/^.+$/
-
+  
   if(emriregex.test(emri)){
      
   }else{
@@ -66,10 +64,5 @@ function validoContact(){
      
   }else{
      alert("phone number should have at least 9 numbers in it!");
-  }
-  if(serviceregex.test(service)){
-     
-  }else{
-     alert("Please enter a service!");
   }
 }

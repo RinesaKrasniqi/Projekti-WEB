@@ -99,19 +99,6 @@ public function setMessage($message){
             return false;
         }
     }
-    
-// public function checkContact($email){
-//     $query ="SELECT * FROM contact WHERE email = ?";
-//     $stm=$this->conn->prepare($query);
-//     $stm->execute([$this->email]);
-//     $result = $stm->rowCount();
-//     if($result > 0){
-//       return true;
-//     }else{
-//         return false;
-//     }
-
-// }
 
 }
   
