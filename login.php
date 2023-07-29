@@ -60,8 +60,8 @@ if (isset($_POST['login'])) {
     <a class="create-acc" href="signup.php">Create an account</a>
    </div>
 
-   <div class="divider-2"></div>
-   <div class="login"><a href="../logout.php" >Log Out</a></div>
+   <!-- <div class="divider-2"></div>
+   <div class="login"><a href="../logout.php" >Log Out</a></div> -->
 
    <?php include_once 'headfooter/footer.php';?>
 
